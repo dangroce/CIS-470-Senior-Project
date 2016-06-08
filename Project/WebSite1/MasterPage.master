@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <img src="logo" alt="Alternate Text" />
+        <img src="../images/logo.png" alt="Alternate Text" />
         <div class="nav">
             <ul>
                 <li><a href="#">Home</a></li>

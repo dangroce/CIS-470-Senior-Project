@@ -1,0 +1,11 @@
+@import "assets";
+div.nav{
+    width:100%;
+
+    ul{
+        float:right;
+        li{
+            display: inline-block;
+        }
+    }
+}

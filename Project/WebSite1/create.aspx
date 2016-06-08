@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/WebSite1/MasterPage.master" CodeFile="create.aspx.cs" Inherits="WebSite1_create" %>
-<%@ MasterType VirtualPath ="~/WebSite1/MasterPage.master" %> 
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="create.aspx.cs" Inherits="WebSite1_create" %>
+<%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content">
         <div class="left">

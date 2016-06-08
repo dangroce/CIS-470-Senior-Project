@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/WebSite1/MasterPage.master" CodeFile="home.aspx.cs" Inherits="WebSite1_home" %>
-<%@ MasterType VirtualPath ="~/WebSite1/MasterPage.master" %> 
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="home.aspx.cs" Inherits="WebSite1_home" %>
+<%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <div class="home_hero">
            <div class="image_holder">
