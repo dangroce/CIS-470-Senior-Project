@@ -161,19 +161,22 @@ public class clsDatalayer
         }
     }
 
-    public bool createEditSingle(string sqlStmt, string param1, string param2 = "param2", 
+    /*public bool createEditSingle(string sqlStmt, string param1, string param2 = "param2", 
                                     string param3 = "param3", string param4 = "param4"
                                 , string param5 = "param5", string param6 = "param6", 
                                     string param7 = "param7", string param8 = "param8")
     {
         // To send back boolean value is set to false incase the IF false
         bool isValid = false;
-
+        DataTable dtUser = new DataTable();
         DataTable dtCrtEdtSing = new DataTable();
 
         //Open connection
         if (this.OpenConnection()==true)
         {
+            
+            string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`" +
+                       " where `userlogin` = @parm1 and `passwrd` = @parm2;";
 
             //Create Command
             MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -204,8 +207,7 @@ public class clsDatalayer
         {
             return dtUser;
         }
-    }
+    }*/
 
 }
 
-}
