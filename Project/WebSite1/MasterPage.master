@@ -5,19 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Williams Specialty Company</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <header>
-        <img src="../images/logo.png" alt="Alternate Text" />
+        
         <div class="nav">
+            <img src="../images/logo.png" alt="Alternate Text" />
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Catalog</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="home.aspx">Home</a></li>
+                <li><a href="catalog.aspx">Catalog</a></li>
+                <li><a href="orders.aspx">Orders</a></li>
                 <li><a href="#">Account</a></li>
-                <li class="btn"><a href="#">Log In</a></li>
+                <li><a href="login.aspx" class="btn">Log In</a></li>
             </ul>
         </div>
     </header>
@@ -29,14 +32,14 @@
     </div>
     </form>
     <footer>
-        <img src="logo" alt="Alternate Text" />
-        <div class="nav">
+       <div class="nav">
+            <img src="../images/footer-logo.png" alt="Alternate Text" />
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Catalog</a></li>
-                <li><a href="#">Orders</a></li>
+                <li><a href="home.aspx">Home</a></li>
+                <li><a href="catalog.aspx">Catalog</a></li>
+                <li><a href="orders.aspx">Orders</a></li>
                 <li><a href="#">Account</a></li>
-                <li class="btn"><a href="#">Log In</a></li>
+                <li><a href="login.aspx" class="btn">Log In</a></li>
             </ul>
         </div>
     </footer>

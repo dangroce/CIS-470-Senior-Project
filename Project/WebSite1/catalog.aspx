@@ -4,57 +4,57 @@
     <div class="banner">
         <h3>Catalog</h3>
     </div>
-    <div class="produscts_holder">
+    <div class="products_holder">
         <div class="product_row">
             <!-- use a loop to for each div.prod --> 
             <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
+                  <img src="../images/prod1.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
+               <div class="prod">
+                  <img src="../images/prod2.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
+               <div class="prod">
+                  <img src="../images/prod3.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
             <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
-            <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
-            <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
-            <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
-            <div class="prod">
-                <img src="#" alt="Alternate Text" />
-                <h5>Product Name</h5>
-                <p>For Winners Only. No exceptions.</p>
-                <h5>Dimensions:</h5>
-                <p>label</p>
-                <a href="#" class="btn inverse">Purchase</a>
-            </div>
+                  <img src="../images/prod1.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
+               <div class="prod">
+                  <img src="../images/prod2.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
+               <div class="prod">
+                  <img src="../images/prod3.png" alt="Alternate Text" />
+                  <h5>Product Name</h5>
+                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Dimensions:</h5>
+                  <p>label</p>
+                  <a href="#" class="btn inverse">Purchase</a>
+              </div>
         </div>
         <div class="pagination">
             <a href="#" class="txt prev"><< Previous</a>
@@ -66,9 +66,10 @@
             <a href="#"class="txt">6</a>
             <a href="#" class="txt next">Next >></a>
         </div>
-        <div class="cta">
-            <h3>need a custom order?</h3>
-            <a href="#"class="cta">call now</a>
-        </div>
+        
+    </div>
+    <div class="cta">
+        <h3>need a custom order?</h3>
+        <a href="#"class="btn inverse">call now</a>
     </div>
 </asp:Content>

@@ -1,0 +1,98 @@
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 94%;
+}
+
+.clr:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+.clr + * {
+	clear: both;
+}
+
+input, select, textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	outline: none;
+	border: none;
+	background-color: transparent;
+	border-radius: 0;
+	padding: 0;
+	margin: 0;
+}
+
+svg * {
+	@include ease(fill);
+}
+
+a {
+    text-decoration: none;
+	color: inherit;
+	@include ease(color);
+}
+h1, h2, h3, h4, h5, h6, p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+h1 {
+
+}
+h2 {
+	font-family: 'Open Sans';
+	font-size: em(46);
+	font-weight: 400;
+}
+h3 {
+	font-family: 'Open Sans';
+	font-size: em(36);
+	line-height: em(43);
+	text-transform: capitalize;
+}
+h4 {
+	font-family: 'Open Sans';
+	font-size: em(18);
+	font-weight: 400;
+	line-height: em(27);
+}
+h5 {
+	font-family: 'Open Sans';
+	font-size: em(18);
+	line-height: em(27);
+}
+h6 {
+
+}
+p {
+	font-family: 'Open Sans';
+	font-size: em(18);
+	line-height: em(27);
+}
+.btn{
+	display: inline-block;
+	text-align: center;
+	font-size: em(14);
+	font-family: 'Open Sans';
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: em(17);
+	letter-spacing: track(200);
+	box-sizing: border-box;
+	min-width: 200px;
+	padding: 10px;
+	background-color: $orange;
+	border: solid 1px $orange;
+	border-radius: 5px;
+	color: white;
+	&.inverse{
+		background-color: transparent;
+		color: $orange;
+	}
+}

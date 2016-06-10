@@ -1,11 +1,151 @@
-@import "assets";
-div.nav{
-    width:100%;
+//initialize project utilities
+@import "init/reset";
+@import "init/breakpoints";
+@import "init/functions";
+@import "init/mixins";
 
-    ul{
-        float:right;
-        li{
-            display: inline-block;
+// setup project variables
+@import "setup/fontstyles";
+@import "setup/variables";
+@import "setup/base";
+header{
+    div.nav{
+        width: 100%;
+        margin:2.5%;
+        margin: 30px 0 15px;
+        img{
+            padding-left: 2.5%;
+        }
+        ul{
+            float:right;
+            margin-right: 2.5%;
+
+            li{
+                display: inline-block;
+                padding: 0 30px;
+                a{
+                    text-decoration: none;
+                    color:$grey;
+                    font-family: 'open sans';
+                    font-size: em(14);
+                    text-transform: uppercase;;
+                    font-weight: 600;
+                    &.btn{
+                        min-width: 140px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+.home_hero{
+    width: 100%;
+    .image_holder{
+        background-image: url('../images/hero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 700px;
+    }
+    .content{
+        padding: 200px percentage(300/1400) 200px percentage(600/1400);
+        h2{
+            margin-bottom: 30px;
+        }
+        h4{
+            margin-bottom: 30px;
+        }
+        a.inverse{
+            margin-right: 20px;
+        }
+    }
+}
+.banner{
+    box-sizing: border-box;
+    padding: 0 percentage(100/1400);
+    background-color: $tan;
+    margin-bottom: 50px;
+}
+.products_holder{
+    text-align: center;
+    margin: 0 percentage(100/1400);
+    p{
+        margin-bottom: 50px;
+    }
+    .product_row{
+
+    }
+    .prod{
+        border: solid 1px $grey;
+        border-radius: 15px;
+        box-sizing: border-box;
+        margin-bottom: 45px;
+        @include GridMe(3, 5%, 0, (900:2, 400:1));
+        img, a{
+            margin-bottom: 40px;
+        }
+        h5, p{
+            text-align: left;
+            padding-left: 20px;
+        }
+        img{
+            margin-top: 10px;
+            min-height: 285px;
+        }
+        p{
+            margin-bottom: 20px;
+        }
+    }
+
+}
+.cta{
+    margin-top: 60px;
+    text-align: center;
+    background-image: url('../images/cta.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 35px 0;
+    h3{
+        display: inline-block;
+        color: white;
+    }
+    a.btn.inverse{
+        margin-left: 50px;
+        display: inline-block;
+        background-color: white;
+    }
+}
+footer{
+    background-color: $grey;
+
+    width: 100%;
+    div.nav{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 30px percentage(100/1400);
+        img{
+            padding-left: 2.5%;
+        }
+        ul{
+            float:right;
+            margin-right: 2.5%;
+
+            li{
+                display: inline-block;
+                padding: 0 30px;
+                a{
+                    text-decoration: none;
+                    color:white;
+                    font-family: 'open sans';
+                    font-size: em(14);
+                    text-transform: uppercase;;
+                    font-weight: 600;
+                    &.btn{
+                        min-width: 140px;
+                        color: white;
+                    }
+                }
+            }
         }
     }
 }

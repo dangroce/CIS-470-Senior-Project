@@ -1,0 +1,379 @@
+/*
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+	☲╣ Declare_Fonts
+	☲╣ Font
+	☲╣ Selection
+    ☲╣ Column_Layout
+    ☲╣ Prefix
+    ☲╣ Transformer
+    ☲╣ Delay
+    ☲╣ Ease
+    ☲╣ Grid_Me
+    ☲╣ Cover
+    ☲╣ Cover_Image
+    ☲╣ Color_Gradient
+    ☲╣ Center
+    ☲╣ Vertical_Align
+    ☲╣ Circle
+    ☲╣ Opacity
+    ☲╣ Filter
+    ☲╣ Grayscale
+    ☲╣ Children
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+*/
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Declare_Fonts ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin declare-fonts($font-list:null, $font-family:null) {
+    @if $font-family == null {
+        @each $pName, $fName in $font-list{
+            %#{$pName}{
+                font-family: $fName;
+            }
+        }
+    }
+    @else {
+        @each $pName, $fWeight in $font-list{
+            %#{$pName}{
+                font-family: $font-family;
+                font-weight: $fWeight;
+                &it{
+                    @extend %#{$pName};
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Font ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin font-sizing($font-size:null, $line-height:null, $margin-bottom:null) {
+    $converted: ();
+
+    @if $font-size != null and unitless($font-size) {
+        $converted: append($converted, em($font-size), comma);
+    }
+    @else{
+        $converted: append($converted, $font-size, comma);
+    }
+
+    @if $line-height != null {
+        @if $font-size != null {
+            @if unitless($line-height) {
+                @if unitless($font-size) {
+                    $converted: append($converted, em($line-height, $font-size), comma);
+                }
+                @else{
+                    $converted: append($converted, em($line-height), comma);
+                }
+            }
+            @else{
+                $converted: append($converted, $line-height, comma);
+            }
+        }
+        @else{
+            @if unitless($line-height) {
+                $converted: append($converted, em($line-height), comma);
+            }
+            @else{
+                $converted: append($converted, $line-height, comma);
+            }
+        }
+    }
+    @else{
+        $converted: append($converted, $line-height, comma);
+    }
+
+    @if $margin-bottom != null {
+        @if unitless($margin-bottom) {
+            @if $line-height != null and $font-size != null {
+                @if unitless($line-height) and unitless($font-size) {
+                    $converted: append($converted, em($margin-bottom - ( $line-height - $font-size ), $font-size), comma);
+                }
+                @else{
+                    $converted: append($converted, em($margin-bottom), comma);
+                }
+            }
+        }
+        @else{
+            $converted: append($converted, $margin-bottom, comma);
+        }
+    }
+    @else{
+        $converted: append($converted, $margin-bottom, comma);
+    }
+
+    font-size: nth($converted, 1);
+    line-height: nth($converted, 2);
+    margin-bottom: nth($converted, 3);
+}
+@mixin font($font-family:null, $font-size:null, $color:null, $line-height:null, $margin-bottom:null, $text-transform:null){
+	@if $font-family != null{
+		@extend %#{$font-family};
+	}
+	color:$color;
+	text-transform: $text-transform;
+
+	@include font-sizing($font-size, $line-height, $margin-bottom);
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Selection ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin selection($background-color, $color){
+	::selection {
+		background-color: $background-color;
+		color: $color;
+	}
+
+	::-moz-selection {
+		background-color: $background-color;
+		color: $color;
+	}
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Column_Layout ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin column-layout($column-count:2, $column-gap:4){
+	column-count: $column-count;
+	-moz-column-count: $column-count;
+	-webkit-column-count: $column-count;
+	column-gap: $column-gap + em;
+	-moz-column-gap: $column-gap + em;
+	-webkit-column-gap: $column-gap + em;
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Prefix ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin prefix($property, $value){
+    @each $prefix in -webkit-, -ms-, -o-, -moz-, '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Transformer ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin transformer($arguments){
+	@include prefix(transform, $arguments);
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Delay ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin delay($delay){
+	@include prefix(transition-delay, $delay);
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Ease ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin ease($properties: all, $durations: 0.35s, $easings: ease-in-out){
+	$final: ();
+
+	@if length($properties) > 1{
+		@each $property in $properties{
+			$index: index($properties, $property);
+			@if length($durations) == length($properties) and length($easings) == length($properties){
+				$final: append($final, $property nth($durations, $index) nth($easings, $index), comma);
+			}
+			@elseif length($durations) == length($properties) and length($easings) == 1{
+				$final: append($final, $property nth($durations, $index) nth($easings, 1), comma)
+			}
+			@elseif length($easings) == length($properties) and length($durations) == 1{
+				$final: append($final, $property nth($durations, 1) nth($easings, $index), comma);
+			}
+			@elseif length($easings) == 1 and length($durations) == 1{
+				$final: append($final, $property nth($durations, 1) nth($easings, 1), comma);
+			}
+		}
+	}
+	@else{
+		$final: nth($properties, 1) nth($durations, 1) nth($easings, 1);
+	}
+	@include prefix(transition, $final);
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Grid_Me ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@function calc-width($col, $gut) {
+    $perc: (100% / $col);
+    $gutter: (($gut * ($col - 1)) / $col);
+
+    @if unit($gutter) == 'px' {
+        @return calc(#{$perc} - #{$gutter});
+    }
+    @else if unit($gutter) == '%' {
+        @return $perc - $gutter;
+    }
+}
+@mixin GridMe($columns, $gutter-x, $gutter-y, $breakpoints:undefined){
+    width: calc-width($columns,$gutter-x);
+    margin-right: $gutter-x;
+    margin-top: $gutter-y;
+    float:left;
+
+    &:nth-child(#{$columns}n) {
+        margin-right:0;
+    }
+    &:nth-child(#{$columns}n+1){
+        clear:both;
+    }
+    &:nth-child(-n+#{$columns}){
+        margin-top:0;
+    }
+
+    @if( $breakpoints != undefined ){
+        $breaks: $breakpoints;
+
+        @each $breakpoint, $columns in $breaks{
+            @media (max-width:#{$breakpoint}px){
+                width: calc-width($columns,$gutter-x);
+
+                &:nth-child(n){
+                    margin-right:$gutter-x;
+                    margin-top:$gutter-y;
+                    clear:none;
+                }
+                &:nth-child(#{$columns}n){
+                    margin-right:0;
+                }
+                &:nth-child(#{$columns}n+1){
+                    clear:both;
+                }
+                &:nth-child(-n+#{$columns}){
+                    margin-top:0;
+                }
+            }
+        }
+    }
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Cover ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin cover($vert:top, $hor:left, $position:absolute){
+    height: 100%;
+    width: 100%;
+	position: $position;
+    @if $position != relative {
+        #{$hor}: 0;
+        #{$vert}: 0;
+    }
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Cover_Image ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin coverimg($xPo: 50%, $yPo: 50%){
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	background-position: $xPo $yPo;
+	background-repeat: no-repeat;
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Color_Gradient ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin colorGrad($startColor, $endColor, $startPercent:0%, $endPercent:100%, $orientation:horizontal){
+	@if $orientation == vertical{
+		background: $startColor; /* Old browsers */
+		background: -moz-linear-gradient(top,  $startColor $startPercent, $endColor $endPercent); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop($startPercent,$startColor), color-stop($endPercent,$endColor)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  $startColor $startPercent,$endColor $endPercent); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  $startColor $startPercent,$endColor $endPercent); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  $startColor $startPercent,$endColor $endPercent); /* IE10+ */
+		background: linear-gradient(to bottom,  $startColor $startPercent,$endColor $endPercent); /* W3C */
+	}
+	@elseif $orientation == horizontal{
+		background: $startColor; /* Old browsers */
+		background: -moz-linear-gradient(left,  $startColor $startPercent, $endColor $endPercent); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, right top, color-stop($startPercent,$startColor), color-stop($endPercent,$endColor)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(left,  $startColor $startPercent,$endColor $endPercent); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(left,  $startColor $startPercent,$endColor $endPercent); /* Opera 11.10+ */
+		background: -ms-linear-gradient(left,  $startColor $startPercent,$endColor $endPercent); /* IE10+ */
+		background: linear-gradient(to right,  $startColor $startPercent,$endColor $endPercent); /* W3C */
+	}
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Center ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin center($height:null, $width:null){
+	position: absolute;
+	@if $height != null{
+		height: $height * 1px;
+		top: 50%;
+		margin-top: -1px * ($height/2);
+	}
+	@if $width != null{
+		width: $width * 1px;
+		left: 50%;
+		margin-left: -1px * ($width/2);
+	}
+}
+@mixin centerRel($height, $parHeight) {
+	position: relative;
+	top: ($parHeight - $height)/2 + px;
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Vertical_Align ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin vAlign($child){
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: .1px;
+    }
+    > #{$child}{
+        display:inline-block;
+        vertical-align:middle;
+    }
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Circle ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin square($length, $background-color:null, $border:null){
+    width: $diameter * 1px;
+    height: $diameter * 1px;
+    background-color: $background-color;
+    border: $border;
+}
+@mixin circle($diameter, $background-color:null, $border:null){
+    @include square($diameter, $background-color, $border);
+    border-radius: 50%;
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Opacity ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin opacity($opacity){
+    opacity: $opacity;
+    filter: alpha(opacity=#{$opacity * 100})
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Filter ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin filter($mColor, $opacity, $oColor:$mColor, $blend-mode:multiply, $itemPos:relative, $childrenPos:relative, $overlayFixer:'.overlayFix'){
+	position: $itemPos;
+	background-blend-mode: $blend-mode;
+	background-color: rgba($mColor, $opacity);
+	#{$overlayFixer}{
+		@include abscover;
+        @include opacity($opacity);
+		z-index: 0;
+		background-color: $oColor;
+		+ *{
+			position: $childrenPos;
+			z-index: 5;
+		}
+	}
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Grayscale ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin grayscale{
+    -moz-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -o-filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(100%);
+    filter: gray;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+}
+
+//☲☲☲☲☲☲☲☲☲☲☲╣ Children ╠☲☲☲☲☲☲☲☲☲☲☲☲//
+@mixin children($children){
+    @each $child,$type in $children{
+        $typeof:type-of($child);
+        $split:('even', 'odd');
+
+        @if $typeof == string and not index($split, $child ) {
+            &:#{$child}-child{
+                @content;
+            }
+        }
+        @else{
+            &:nth-child(#{$child}#{$type}){
+                @content;
+            }
+        }
+    }
+}

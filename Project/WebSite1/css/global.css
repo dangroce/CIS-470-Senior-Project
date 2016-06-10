@@ -1,0 +1,450 @@
+@charset "UTF-8";
+/** * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/) * Richard Clark (http://richclarkdesign.com) * http://cssreset.com */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+@media only screen and (max-device-width: 480px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+/*
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+	☲╣ Strip_Units
+	☲╣ Em_Rem
+	☲╣ Z_Index
+    ☲╣ Letter_Spacing
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+*/
+/*
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+	☲╣ Declare_Fonts
+	☲╣ Font
+	☲╣ Selection
+    ☲╣ Column_Layout
+    ☲╣ Prefix
+    ☲╣ Transformer
+    ☲╣ Delay
+    ☲╣ Ease
+    ☲╣ Grid_Me
+    ☲╣ Cover
+    ☲╣ Cover_Image
+    ☲╣ Color_Gradient
+    ☲╣ Center
+    ☲╣ Vertical_Align
+    ☲╣ Circle
+    ☲╣ Opacity
+    ☲╣ Filter
+    ☲╣ Grayscale
+    ☲╣ Children
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+*/
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 94%;
+}
+
+.clr:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.clr + * {
+  clear: both;
+}
+
+input, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+
+svg * {
+  -webkit-transition: fill 0.35s ease-in-out;
+  -ms-transition: fill 0.35s ease-in-out;
+  -o-transition: fill 0.35s ease-in-out;
+  -moz-transition: fill 0.35s ease-in-out;
+  transition: fill 0.35s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-transition: color 0.35s ease-in-out;
+  -ms-transition: color 0.35s ease-in-out;
+  -o-transition: color 0.35s ease-in-out;
+  -moz-transition: color 0.35s ease-in-out;
+  transition: color 0.35s ease-in-out;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, p:last-child {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-family: 'Open Sans';
+  font-size: 2.875em;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: 'Open Sans';
+  font-size: 2.25em;
+  line-height: 2.6875em;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  font-weight: 400;
+  line-height: 1.6875em;
+}
+
+h5 {
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  line-height: 1.6875em;
+}
+
+p {
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  line-height: 1.6875em;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  font-size: 0.875em;
+  font-family: 'Open Sans';
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.0625em;
+  letter-spacing: 0.2em;
+  box-sizing: border-box;
+  min-width: 200px;
+  padding: 10px;
+  background-color: #F05A28;
+  border: solid 1px #F05A28;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn.inverse {
+  background-color: transparent;
+  color: #F05A28;
+}
+
+header div.nav {
+  width: 100%;
+  margin: 2.5%;
+  margin: 30px 0 15px;
+}
+
+header div.nav img {
+  padding-left: 2.5%;
+}
+
+header div.nav ul {
+  float: right;
+  margin-right: 2.5%;
+}
+
+header div.nav ul li {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+header div.nav ul li a {
+  text-decoration: none;
+  color: #58585B;
+  font-family: 'open sans';
+  font-size: 0.875em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+header div.nav ul li a.btn {
+  min-width: 140px;
+  color: white;
+}
+
+.home_hero {
+  width: 100%;
+}
+
+.home_hero .image_holder {
+  background-image: url("../images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+}
+
+.home_hero .content {
+  padding: 200px 21.42857% 200px 42.85714%;
+}
+
+.home_hero .content h2 {
+  margin-bottom: 30px;
+}
+
+.home_hero .content h4 {
+  margin-bottom: 30px;
+}
+
+.home_hero .content a.inverse {
+  margin-right: 20px;
+}
+
+.banner {
+  box-sizing: border-box;
+  padding: 0 7.14286%;
+  background-color: #FFDEB2;
+  margin-bottom: 50px;
+}
+
+.products_holder {
+  text-align: center;
+  margin: 0 7.14286%;
+}
+
+.products_holder p {
+  margin-bottom: 50px;
+}
+
+.products_holder .prod {
+  border: solid 1px #58585B;
+  border-radius: 15px;
+  box-sizing: border-box;
+  margin-bottom: 45px;
+  width: 30%;
+  margin-right: 5%;
+  margin-top: 0;
+  float: left;
+}
+
+.products_holder .prod:nth-child(3n) {
+  margin-right: 0;
+}
+
+.products_holder .prod:nth-child(3n+1) {
+  clear: both;
+}
+
+.products_holder .prod:nth-child(-n+3) {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .products_holder .prod {
+    width: 47.5%;
+  }
+  .products_holder .prod:nth-child(n) {
+    margin-right: 5%;
+    margin-top: 0;
+    clear: none;
+  }
+  .products_holder .prod:nth-child(2n) {
+    margin-right: 0;
+  }
+  .products_holder .prod:nth-child(2n+1) {
+    clear: both;
+  }
+  .products_holder .prod:nth-child(-n+2) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .products_holder .prod {
+    width: 100%;
+  }
+  .products_holder .prod:nth-child(n) {
+    margin-right: 5%;
+    margin-top: 0;
+    clear: none;
+  }
+  .products_holder .prod:nth-child(1n) {
+    margin-right: 0;
+  }
+  .products_holder .prod:nth-child(1n+1) {
+    clear: both;
+  }
+  .products_holder .prod:nth-child(-n+1) {
+    margin-top: 0;
+  }
+}
+
+.products_holder .prod img, .products_holder .prod a {
+  margin-bottom: 40px;
+}
+
+.products_holder .prod h5, .products_holder .prod p {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.products_holder .prod img {
+  margin-top: 10px;
+  min-height: 285px;
+}
+
+.products_holder .prod p {
+  margin-bottom: 20px;
+}
+
+.cta {
+  margin-top: 60px;
+  text-align: center;
+  background-image: url("../images/cta.jpg");
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 35px 0;
+}
+
+.cta h3 {
+  display: inline-block;
+  color: white;
+}
+
+.cta a.btn.inverse {
+  margin-left: 50px;
+  display: inline-block;
+  background-color: white;
+}
+
+footer {
+  background-color: #58585B;
+  width: 100%;
+}
+
+footer div.nav {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 7.14286%;
+}
+
+footer div.nav img {
+  padding-left: 2.5%;
+}
+
+footer div.nav ul {
+  float: right;
+  margin-right: 2.5%;
+}
+
+footer div.nav ul li {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+footer div.nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-family: 'open sans';
+  font-size: 0.875em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+footer div.nav ul li a.btn {
+  min-width: 140px;
+  color: white;
+}

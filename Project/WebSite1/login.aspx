@@ -20,7 +20,7 @@
     </div>
     <div class="cta">
         <h3>need a custom order?</h3>
-        <a href="#"class="cta">call now</a>
+        <a href="#"class="btn inverse">call now</a>
     </div>
 </asp:Content>
 
