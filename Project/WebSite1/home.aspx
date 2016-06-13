@@ -10,8 +10,8 @@
                    <h4>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
                    </h4>
-                   <a href="#" class="btn inverse">view catalog</a>
-                   <a href="#" class="btn">log in</a>
+                   <a href="catalog.aspx" class="btn inverse">view catalog</a>
+                   <a href="login.aspx" class="btn">log in</a>
                </div>
               </div>
        </div>
