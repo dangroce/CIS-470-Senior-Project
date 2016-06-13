@@ -96,21 +96,21 @@ public class clsDatalayer
 
 
     //Select statement
-    public DataTable Select()
+    public DataTable Select(string sqlStmt, string parm1 = "parm1", string parm2 = "parm2")
     {
-        DataTable dtUser = new DataTable();
+        DataTable dsSelect = new DataTable();
 
-        string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`;";
+        //string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`;";
 
         //Open connection
         if (this.OpenConnection() == true)
         {
             //Create Command
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(sqlStmt, connection);
 
             using (MySqlDataAdapter daUsers = new MySqlDataAdapter(cmd))
             {
-                daUsers.Fill(dtUser);
+                daUsers.Fill(dsSelect);
             }
 
 
@@ -118,33 +118,33 @@ public class clsDatalayer
             this.CloseConnection();
 
             //return list to be displayed
-            return dtUser;
+            return dsSelect;
         }
         else
         {
-            return dtUser;
+            return dsSelect;
         }
     }
 
-    public DataTable mySelect(string username, string password)
+    public DataTable mySelect(string sqlStmt, string parm1 = "parm1", string parm2 = "parm2")
     {
-        DataTable dtUser = new DataTable();
+        DataTable dsMySelect = new DataTable();
 
-        string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`" +
-                        " where `userlogin` = @parm1 and `passwrd` = @parm2;";
+        //string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`" +
+        //                " where `userlogin` = @parm1 and `passwrd` = @parm2;";
 
         //Open connection
         if (this.OpenConnection() == true)
         {
             //Create Command
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(sqlStmt, connection);
 
-            cmd.Parameters.AddWithValue("@parm1", username);
-            cmd.Parameters.AddWithValue("@parm2", password);
+            cmd.Parameters.AddWithValue("@parm1", parm1);
+            cmd.Parameters.AddWithValue("@parm2", parm2);
 
             using (MySqlDataAdapter daUsers = new MySqlDataAdapter(cmd))
             {
-                daUsers.Fill(dtUser);
+                daUsers.Fill(dsMySelect);
             }
 
 
@@ -153,11 +153,11 @@ public class clsDatalayer
             this.CloseConnection();
 
             //return list to be displayed
-            return dtUser;
+            return dsMySelect;
         }
         else
         {
-            return dtUser;
+            return dsMySelect;
         }
     }
 

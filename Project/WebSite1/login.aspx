@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="login.aspx.cs" Inherits="WebSite1_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="login.aspx.cs" Inherits="login" %>
 <%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -7,10 +7,11 @@
             <h3>Please log in</h3>
             <p>Enter your username and password below.</p>
             <asp:Label ID="lblUserName" runat="server" Text="Label">User Name</asp:Label>
-            <input id="txtUserName" placeholder="Enter UserName" type="text" />
+            <asp:TextBox ID="txtUserName" runat="server" Text="Enter UserName"></asp:TextBox>
             <asp:Label ID="Label1" runat="server" Text="Label">Password</asp:Label>
-            <input id="txtPassword" placeholder="Enter Password" type="password" />
-            <input id="sbmtLogIn" class="btn" type="submit" value="Log In" />
+            <asp:Textbox ID="txtPassword" runat="server" Text="Enter Password" type="password" />
+            <asp:Button id="sbmtLogIn" class="btn" type="submit" value="Log In"/>
+            <asp:Button ID="sbmtLogIn" runat="server" CssClass="btn" Text="Button"  onclick="btnLogin_Click" />
         </div>
         <div class="right">
             <h3>Create New Account</h3>

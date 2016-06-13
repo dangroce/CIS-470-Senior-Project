@@ -6,7 +6,7 @@
     </div>
     <div class="products_holder">
         <div class="product_row">
-            <!-- use a loop to for each div.prod --> 
+            <!-- use a loop to for each div.prod -->
             <div class="prod">
                   <img src="../images/prod1.png" alt="Alternate Text" />
                   <h5>Product Name</h5>
