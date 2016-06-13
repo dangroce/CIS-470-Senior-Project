@@ -298,6 +298,7 @@ header div.nav ul li a.btn {
   padding: 0 7.14286%;
   background-color: #FFDEB2;
   margin-bottom: 50px;
+  border:solid;
 }
 
 .products_holder {
@@ -406,7 +407,7 @@ header div.nav ul li a.btn {
 
 .cta a.btn.inverse {
   margin-left: 50px;
-  display: inline-block;
+  display: inline;
   background-color: white;
 }
 
@@ -447,4 +448,15 @@ footer div.nav ul li a {
 footer div.nav ul li a.btn {
   min-width: 140px;
   color: white;
+}
+
+.Catlog{
+    display:inline;
+}
+
+.lblCart{
+    position:relative;
+    top:60px;
+    vertical-align:bottom;
+    float:right;
 }
