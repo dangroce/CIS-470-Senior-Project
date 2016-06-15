@@ -98,7 +98,71 @@ header{
     }
 
 }
+.form_content.create{
+    height: 1100px;
+}
+.form_content{
+    background-color: $tan;
+    margin-bottom: 0;
+    height: 700px;
+    +.cta{
+        margin-top: 0;
+    }
+    .left{
+        border-right: solid 1px $orange;
+    }
+    .form_row{
+        width: 100%;
+        float: none
+    }
+    h3{
+        width: 100%;
+    }
+    p{
+        width: percentage(400/600);
+        margin-bottom: 30px;
+    }
+    span{
+        width: 100%;
+        margin-bottom: 20px;
+        font-family: 'Open Sans';
+        font-size: em(18);
+        line-height: em(28);
+    }
+    select{
+        font-family: 'Open Sans';
+        font-size: em(18);
+        line-height: em(28);
+        width: percentage(460/600);
+        padding-left: 10px;
+        margin-right: percentage(155/600);
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    input[type="text"],input[type="password"]{
+        font-family: 'Open Sans';
+        font-size: em(18);
+        line-height: em(28);
+        width: percentage(445/600);
+        padding-left: 10px;
+        margin-right: percentage(155/600);
+        background-color: white;
+        margin-bottom: 20px;
+    }
+    .btn{
+        margin-top: 20px;
+    }
+    .left,.right{
+        padding:0 percentage(100/1400) 100px;
+        margin-top: 100px;
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
+    }
+
+}
 .cta{
+    clear:both;
     margin-top: 60px;
     text-align: center;
     background-image: url('../images/cta.jpg');

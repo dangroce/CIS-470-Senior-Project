@@ -390,7 +390,82 @@ header div.nav ul li a.btn {
   margin-bottom: 20px;
 }
 
+.form_content.create {
+  height: 1100px;
+}
+
+.form_content {
+  background-color: #FFDEB2;
+  margin-bottom: 0;
+  height: 700px;
+}
+
+.form_content + .cta {
+  margin-top: 0;
+}
+
+.form_content .left {
+  border-right: solid 1px #F05A28;
+}
+
+.form_content .form_row {
+  width: 100%;
+  float: none;
+}
+
+.form_content h3 {
+  width: 100%;
+}
+
+.form_content p {
+  width: 66.66667%;
+  margin-bottom: 30px;
+}
+
+.form_content span {
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  line-height: 1.75em;
+}
+
+.form_content select {
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  line-height: 1.75em;
+  width: 76.66667%;
+  padding-left: 10px;
+  margin-right: 25.83333%;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.form_content input[type="text"], .form_content input[type="password"] {
+  font-family: 'Open Sans';
+  font-size: 1.125em;
+  line-height: 1.75em;
+  width: 74.16667%;
+  padding-left: 10px;
+  margin-right: 25.83333%;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.form_content .btn {
+  margin-top: 20px;
+}
+
+.form_content .left, .form_content .right {
+  padding: 0 7.14286% 100px;
+  margin-top: 100px;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+}
+
 .cta {
+  clear: both;
   margin-top: 60px;
   text-align: center;
   background-image: url("../images/cta.jpg");

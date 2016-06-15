@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="create.aspx.cs" Inherits="WebSite1_create" %>
 <%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="content">
+    <div class="form_content create">
         <div class="left">
             <h3>Create New Account</h3>
             <p>Please enter your information for your account.</p>
@@ -78,12 +78,12 @@
         <div class="right">
             <h3>Have an Account?</h3>
             <p>Already have an account? Click the Log In button below to sign in with your existing Williams Specialty Company account. You must have an account to log in.</p>
-            <a href="#"class="btn inverse">Create Account</a>
+            <a href="login.aspx"class="btn inverse">Log In</a>
         </div>
     </div>
-    <div class="cta">
+    <div class="cta clr">
         <h3>need a custom order?</h3>
-        <a href="#"class="cta">call now</a>
+        <a href="#"class="btn inverse">call now</a>
     </div>
 </asp:Content>
 
