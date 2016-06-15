@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+
+using System;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class GridView_Total : System.Web.UI.Page
+{
+    // Declare variable used to store value of Total
+    private decimal TotalSales = (decimal)0.0;
+
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        // check row type
+        if (e.Row.RowType == DataControlRowType.DataRow)
+            // if row type is DataRow, add ProductSales value to TotalSales
+            TotalSales += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "ProductSales"));
+        else if (e.Row.RowType == DataControlRowType.Footer)
+            // If row type is footer, show calculated total value
+            // Since this example uses sales in dollars, I formatted output as currency
+            e.Row.Cells[1].Text = String.Format("{0:c}", TotalSales);
+    }
+}

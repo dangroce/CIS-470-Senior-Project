@@ -2,7 +2,9 @@
 <%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="banner">
-        <h3>Catalog</h3>
+        <h3 class="Catlog">Catalog</h3>
+        <asp:Label ID="lblCart" CssClass="lblCart" runat="server" Text="Shoping Cart"></asp:Label>
+        <asp:Label ID="lblCartCount" CssClass="lblCart" runat="server" ></asp:Label>
     </div>
     <div class="products_holder">
         <div class="product_row">
@@ -13,7 +15,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct1" value="1" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
@@ -21,7 +23,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct2" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
@@ -29,7 +31,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct3" class="btn inverse" runat="server" Text="Purchase" />
               </div>
             <div class="prod">
                   <img src="../images/prod1.png" alt="Alternate Text" />
@@ -37,7 +39,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct4" class="btn inverse" runat="server" Text="Purchase" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
@@ -45,7 +47,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct5" class="btn inverse" runat="server" Text="Purchase" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
@@ -53,7 +55,7 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>label</p>
-                  <a href="#" class="btn inverse">Purchase</a>
+                <asp:Button ID="btnProduct6" class="btn inverse" runat="server" Text="Purchase" />
               </div>
         </div>
         <div class="pagination">
