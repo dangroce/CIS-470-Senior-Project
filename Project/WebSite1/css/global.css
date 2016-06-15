@@ -524,14 +524,3 @@ footer div.nav ul li a.btn {
   min-width: 140px;
   color: white;
 }
-
-.Catlog{
-    display:inline;
-}
-
-.lblCart{
-    position:relative;
-    top:60px;
-    vertical-align:bottom;
-    float:right;
-}
