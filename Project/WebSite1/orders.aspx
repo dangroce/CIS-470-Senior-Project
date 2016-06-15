@@ -5,7 +5,6 @@
         <h3>Complete Your Order</h3>
     </div>
     <div class="content center">
-        <!-- data table here i will style after since i dont have a data connection currently -->
         <asp:GridView ID="gvOrders" runat="server"></asp:GridView>
     </div>
 </asp:Content>

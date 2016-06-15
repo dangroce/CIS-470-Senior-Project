@@ -81,7 +81,7 @@ header{
         box-sizing: border-box;
         margin-bottom: 45px;
         @include GridMe(3, 5%, 0, (900:2, 400:1));
-        img, a{
+        img, .btn{
             margin-bottom: 40px;
         }
         h5, p{

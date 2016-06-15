@@ -2,11 +2,8 @@
 <%@ MasterType VirtualPath ="~/MasterPage.master" %> 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="banner">
-<<<<<<< HEAD
         <h3 class="Catlog">Catalog</h3>
-=======
-        <h3 class="Catlog">Catalog</h3>
->>>>>>> 31e8b4fcb7d0aba0461cd48874ec194ea28a3c64
+
         <asp:Label ID="lblCart" CssClass="lblCart" runat="server" Text="Shoping Cart"></asp:Label>
         <asp:Label ID="lblCartCount" CssClass="lblCart" runat="server" ></asp:Label>
     </div>

@@ -298,7 +298,6 @@ header div.nav ul li a.btn {
   padding: 0 7.14286%;
   background-color: #FFDEB2;
   margin-bottom: 50px;
-  border:solid;
 }
 
 .products_holder {
@@ -373,7 +372,7 @@ header div.nav ul li a.btn {
   }
 }
 
-.products_holder .prod img, .products_holder .prod a {
+.products_holder .prod img, .products_holder .prod .btn {
   margin-bottom: 40px;
 }
 
@@ -482,7 +481,7 @@ header div.nav ul li a.btn {
 
 .cta a.btn.inverse {
   margin-left: 50px;
-  display: inline;
+  display: inline-block;
   background-color: white;
 }
 
