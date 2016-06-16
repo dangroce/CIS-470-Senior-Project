@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -78,4 +79,76 @@ public class clsBusinessLayer
 
         return dtGetOrders;
     }
+
+    public int AddOrder(int userid, int item)
+    {
+        DataTable dtAOrder = new DataTable();
+        DataTable dtProd = new DataTable();
+        DataTable dtOrder = new DataTable();
+        DataTable dtCnt = new DataTable();
+        string sqlStmt = "";
+        float prdamt = 0;
+        string prdDesc = "";
+        int itemCnt = 1;
+        string dtTime = "";
+
+
+        string sqlStmtProd = "select * from `wsc`.`product` where `productid` = @parm1;";
+        string sqlStmtCnt = "select count(*) from `wsc`.`orders` where  `userid` = @parm1 and `validation` = 0;";
+
+        dtProd = myDataLayer.mySelect(sqlStmtProd, item.ToString());
+
+        if (dtProd.Rows.Count > 0)
+        {
+            prdamt = dtProd.Rows[0].Field<float>("retailcost");
+            prdDesc = dtProd.Rows[0].Field<string>("productdescription");
+        }
+
+
+        string sqlStmtOrd = "select * from `wsc`.`orders` where  `itemid` = @parm1 and `userid` = @parm2 " +
+                            "and `validation` = 0;";
+
+        dtOrder = myDataLayer.AddOrder(sqlStmtOrd, item, userid,0,0,"",0,"1990/1/1 01:00:00.00");
+
+        if (dtOrder.Rows.Count > 0)
+        {
+            itemCnt = dtOrder.Rows[0].Field<int>("itemcount") + 1;
+            dtTime = dtOrder.Rows[0].Field<DateTime>("orderdate").ToString();
+
+        }
+        else
+        {
+            dtTime =DateTime.Now.ToString();
+        }
+
+
+        if (dtOrder.Rows.Count == 0 )
+        {
+            sqlStmt = "set foreign_key_checks = false;Insert into `wsc`.`orders` (`itemid`,`userid`,`itemcount`," +
+                        "`amount`, `Description`,`adjustments`,`orderdate`,`validation`,`fullfilled`)" +
+                        "values (@parm1, @parm2,@parm3, @parm4, @parm5, @parm6, @parm7, @parm8, @parm9); "+
+                        "set foreign_key_checks = true;";
+        }
+        else
+        {
+            sqlStmt = "update `wsc`.`orders` set `itemid` = @parm1," +
+                        "`userid` = @parm2,`itemcount` = @parm3,`amount` = @parm4, " +
+                        "`Description` = @parm5,`adjustments` = @parm6," +
+                        "`orderdate` = @parm7,`validation` = @parm8,`fullfilled` = @parm9;";
+        }
+
+            dtAOrder = myDataLayer.AddOrder(sqlStmt, item, userid,
+                       itemCnt, prdamt, prdDesc, 0, dtTime, 0, 0);
+
+        //dtCnt = myDataLayer.cntSelect(sqlStmtCnt, userid);
+
+        //itemCnt = dtCnt.Rows[0].Field<int>(0);
+
+        return itemCnt;
+    }
+
 }
+
+
+
+

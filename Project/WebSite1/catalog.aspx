@@ -12,51 +12,51 @@
             <!-- use a loop to for each div.prod -->
             <div class="prod">
                   <img src="../images/prod1.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
-                  <p>For Winners Only. No exceptions.</p>
+                  <h5>StarWars Tee-Shirt</h5>
+                  <p>May the Force be with you.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct1" value="1" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
+                  <p>Clothes</p>
+                <asp:Button ID="btnProduct1_1" value="1" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
-                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Star Jeans</h5>
+                  <p>Look like you fell from the Stars.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct2" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
+                  <p>Clothes</p>
+                <asp:Button ID="btnProduct2_2" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
+                  <h5>Bowling Trophy Woman</h5>
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct3" class="btn inverse" runat="server" Text="Purchase" />
+                  <p>Trophy</p>
+                <asp:Button ID="btnProduct3_3" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
             <div class="prod">
                   <img src="../images/prod1.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
-                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Bowling Trophy Man</h5>
+                  <p>Only Winners Here.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct4" class="btn inverse" runat="server" Text="Purchase" />
+                  <p>Trophy</p>
+                <asp:Button ID="btnProduct4_4" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
+                  <h5>Baseball Plaques</h5>
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct5" class="btn inverse" runat="server" Text="Purchase" />
+                  <p>Plaques</p>
+                <asp:Button ID="btnProduct5_5" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
-                  <h5>Product Name</h5>
-                  <p>For Winners Only. No exceptions.</p>
+                  <h5>Team Trophy 3 People Top</h5>
+                  <p>MVP.</p>
                   <h5>Dimensions:</h5>
-                  <p>label</p>
-                <asp:Button ID="btnProduct6" class="btn inverse" runat="server" Text="Purchase" />
+                  <p>Trophy</p>
+                <asp:Button ID="btnProduct6_6" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
         </div>
         <div class="pagination">

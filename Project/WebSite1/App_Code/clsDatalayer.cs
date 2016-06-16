@@ -161,6 +161,86 @@ public class clsDatalayer
         }
     }
 
+    public DataTable cntSelect(string sqlStmt, int parm1)
+    {
+        DataTable dsMySelect = new DataTable();
+
+        //Open connection
+        if (this.OpenConnection() == true)
+        {
+            //Create Command
+            MySqlCommand cmd = new MySqlCommand(sqlStmt, connection);
+
+            cmd.Parameters.AddWithValue("@parm1", parm1);
+
+            using (MySqlDataAdapter daUsers = new MySqlDataAdapter(cmd))
+            {
+                daUsers.Fill(dsMySelect);
+            }
+
+
+
+            //close Connection
+            this.CloseConnection();
+
+            //return list to be displayed
+            return dsMySelect;
+        }
+        else
+        {
+            return dsMySelect;
+        }
+    }
+
+    public DataTable AddOrder(string sqlStmt, int prodid = 0, int userid = 0, int itemcnt = 0,
+                        float amount = 0, string descript = "", float adj = 0, 
+                        string orderdate = "" ,
+                        int validation = 0, int fullfilled = 0)
+    {
+        DataTable dsAProd = new DataTable();
+
+
+        //Open connection
+        if (this.OpenConnection() == true)
+        {
+            //Create Command
+            MySqlCommand cmd = new MySqlCommand(sqlStmt, connection);
+
+            if(prodid != 0)
+            cmd.Parameters.AddWithValue("@parm1", prodid);
+            if(userid != 0)
+            cmd.Parameters.AddWithValue("@parm2", userid);
+            if(itemcnt != 0)
+            cmd.Parameters.AddWithValue("@parm3", itemcnt);
+            if(amount != 0)
+            cmd.Parameters.AddWithValue("@parm4", amount);
+            if(descript != "")
+            cmd.Parameters.AddWithValue("@parm5", descript);
+            cmd.Parameters.AddWithValue("@parm6", adj);
+                DateTime dt = Convert.ToDateTime(orderdate);
+                cmd.Parameters.AddWithValue("@parm7", dt);
+            cmd.Parameters.AddWithValue("@parm8", validation);
+                cmd.Parameters.AddWithValue("@parm9", fullfilled);
+
+            using (MySqlDataAdapter daOrder = new MySqlDataAdapter(cmd))
+            {
+                daOrder.Fill(dsAProd);
+            }
+
+
+
+            //close Connection
+            this.CloseConnection();
+
+            //return list to be displayed
+            return dsAProd;
+        }
+        else
+        {
+            return dsAProd;
+        }
+    }
+
     /*public bool createEditSingle(string sqlStmt, string param1, string param2 = "param2", 
                                     string param3 = "param3", string param4 = "param4"
                                 , string param5 = "param5", string param6 = "param6", 
