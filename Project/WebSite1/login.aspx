@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="login.aspx.cs" Inherits="login" %>
-<%@ MasterType VirtualPath ="~/MasterPage.master" %> 
+<%@ MasterType VirtualPath ="~/MasterPage.master" %>
 
 <asp:Content  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="form_content">
@@ -15,7 +15,7 @@
                 <asp:Textbox ID="txtPassword" runat="server" placeholder="Enter Password" type="password" />
             </div>
             <div class="form_row">
-                <asp:Button ID="sbmtLogIn" runat="server" CssClass="btn" Text="Log In"  onclick="btnLogin_Click" />
+                <asp:Button ID="sbmtLogIn" runat="server" CssClass="btn" Text="Log In" TabIndex="3"  onclick="btnLogin_Click" />
             </div>
         </div>
         <div class="right">
@@ -29,4 +29,3 @@
         <a href="#"class="btn inverse">call now</a>
     </div>
 </asp:Content>
-

@@ -13,7 +13,7 @@ public partial class login : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        this.txtUserName.Focus();
     }
 
     public string userName
@@ -42,9 +42,11 @@ public partial class login : System.Web.UI.Page
         // create a datatable to load user information
         DataTable dtlogin = new DataTable();
 
+
         try
         {
             dtlogin = myBusinessLayer.loginUser(userName, password);
+            Session["userid"] = dtlogin.Rows[0].Field<int>("userid").ToString();
 
             {
                 if (dtlogin.Rows.Count > 0)

@@ -6,19 +6,19 @@
             <h3>Create New Account</h3>
             <p>Please enter your information for your account.</p>
             <asp:Label ID="lblCreateUserName" runat="server" Text="Label">User Name</asp:Label>
-            <input id="txtCreateUserName" placeholder="Enter UserName" type="text" />
+            <asp:TextBox id="txtUserName" runat="server"  type="text" />
             <asp:Label ID="lblCreatePassword" runat="server" Text="Label">Password</asp:Label>
-            <input id="txtCreatePassword" placeholder="Enter Password" type="text" />
+            <asp:TextBox id="txtPassword" runat="server"  type="text" />
             <asp:Label ID="lblCreateFirstName" runat="server" Text="Label">First Name</asp:Label>
-            <input id="txtCreateFirstName" placeholder="Enter Name" type="text" />
+            <asp:TextBox id="txtFirstName" runat="server"  type="text" />
             <asp:Label ID="lblCreateLastName" runat="server" Text="Label">Last Name</asp:Label>
-            <input id="txtCreateLastName" placeholder="Enter Last Name" type="text" />
-            <asp:Label ID="lblCreateAddress" runat="server" Text="Label">Address</asp:Label>
-            <input id="txtCreateAddress" placeholder="Address Line 1" type="text" />
-            <asp:Label ID="lblCreateAddress2" runat="server" Text="Label">Address 2</asp:Label>
-            <input id="txtCreateAddress2" placeholder="Address Line 2" type="text" />
+            <asp:TextBox id="txtLastName" runat="server"  type="text" />
+            <asp:Label ID="lblAddress1" runat="server" Text="Label">Address</asp:Label>
+            <asp:TextBox id="txtAddress1" runat="server"  type="text" />
+            <asp:Label ID="lblAddress2" runat="server" Text="Label">Address 2</asp:Label>
+            <asp:TextBox id="txtAddress2" runat="server"  type="text" />
             <asp:Label ID="lblCreateCity" runat="server" Text="Label">City</asp:Label>
-            <input id="txtCreateCity" placeholder="Enter City" type="text" />
+            <asp:TextBox ID="txtCity" runat="server" type="text" />
             <asp:Label ID="lblCreateState" runat="server" Text="Label">State</asp:Label>
             <select id="slctState">
                 <option value="#"  selected disabled>Select a State</option>
@@ -74,7 +74,9 @@
 	            <option value="WI">Wisconsin</option>
 	            <option value="WY">Wyoming</option>
             </select>
-            <input id="sbmtCreat" class="btn" type="submit" value="Create Account" />
+            <asp:Label ID="lblZip" runat="server" Text="Zip">City</asp:Label>
+            <asp:TextBox ID="txtZip" runat="server" type="text" />
+            <asp:Button ID="sbmtCreat" class="btn" runat="server" value="Create Account" OnClick="btnSubmit_Click"/>
         </div>
         <div class="right">
             <h3>Have an Account?</h3>

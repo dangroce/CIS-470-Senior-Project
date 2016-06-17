@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace Website3
 {
@@ -13,6 +15,7 @@ namespace Website3
         protected void Page_Load(object sender, EventArgs e)
         {
             txtZip.MaxLength = 5;
+            
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -29,12 +32,24 @@ namespace Website3
                     lblError.Text += "Please enter user name! <br />";
                     isValid = false;
                 }
+                else if(!Regex.IsMatch(txtUserName.Text,"^[a-zA-Z]+$"))
+                {
+                    txtUserName.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "user name can only be upper and lower case letters <br />";
+                    isValid = false;
+                }
                 else
                 {
                     txtUserName.BackColor = System.Drawing.Color.White;
                 }
                 //Password
                 if (string.IsNullOrEmpty((txtPassword.Text ?? string.Empty).Trim()))
+                {
+                    txtPassword.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "Please enter password! <br />";
+                    isValid = false;
+                }
+                else if (!Regex.IsMatch(txtPassword.Text, @"^[0-9a-zA-Z\?\!\@]+$"))
                 {
                     txtPassword.BackColor = System.Drawing.Color.Yellow;
                     lblError.Text += "Please enter password! <br />";
@@ -51,6 +66,12 @@ namespace Website3
                     lblError.Text += "Please enter email! <br />";
                     isValid = false;
                 }
+                else if (!Regex.IsMatch(txtEmail.Text, "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$"))
+                {
+                     txtEmail.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "Please enter email valid email! <br />";
+                    isValid = false;
+                }
                 else
                 {
                     txtEmail.BackColor = System.Drawing.Color.White;
@@ -62,6 +83,13 @@ namespace Website3
                     lblError.Text += "Please enter first name! <br />";
                     isValid = false;
                 }
+                else if (!Regex.IsMatch(txtFirstName.Text, "^[a-zA-Z]+$"))
+                {
+                    txtFirstName.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "Please enter first name! <br />";
+                    isValid = false;
+                }
+
                 else
                 {
                     txtFirstName.BackColor = System.Drawing.Color.White;
@@ -71,6 +99,12 @@ namespace Website3
                 {
                     txtLastName.BackColor = System.Drawing.Color.Yellow;
                     lblError.Text += "Please enter last name! <br />";
+                    isValid = false;
+                }
+                else if (!Regex.IsMatch(txtLastName.Text, "^[a-zA-Z]+$"))
+                {
+                    txtLastName.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "Please enter last name ! <br />";
                     isValid = false;
                 }
                 else
@@ -84,6 +118,7 @@ namespace Website3
                     lblError.Text += "Please enter Address! <br />";
                     isValid = false;
                 }
+              
                 else
                 {
                     txtAddress.BackColor = System.Drawing.Color.White;
@@ -92,6 +127,12 @@ namespace Website3
                 
                 //City
                 if (string.IsNullOrEmpty((txtCity.Text ?? string.Empty).Trim()))
+                {
+                    txtCity.BackColor = System.Drawing.Color.Yellow;
+                    lblError.Text += "Please enter City! <br />";
+                    isValid = false;
+                }
+                else if (!Regex.IsMatch(txtCity.Text, @"^[^0-9\#\$\@\+\*]*$"))
                 {
                     txtCity.BackColor = System.Drawing.Color.Yellow;
                     lblError.Text += "Please enter City! <br />";
@@ -110,12 +151,11 @@ namespace Website3
                     lblError.Text += "Please enter Zip code! <br />";
                     isValid = false;
                 }
-                else if(zipNumberCheck())
+                else if (!Regex.IsMatch(txtZip.Text, "^[0-9]+$"))
                 {
                     txtZip.BackColor = System.Drawing.Color.Yellow;
                     lblError.Text += "Please Enter only numbers into the zip code! <br />";
                     isValid = false;
-
                 }
                 else
                 {
@@ -167,54 +207,6 @@ namespace Website3
             txtZip.Text = null;
             txtZip.BackColor = System.Drawing.Color.White;
         }
-        //check to see if zip code is all numbers
-        protected bool zipNumberCheck()
-        {
-          
-
-            bool valid = false;
-          
-            int size = 5;
-           
-            string test = txtZip.Text;
        
-            for (int y = 0; y < size; y++)
-            {
-               
-                switch (test[y].ToString())
-                {
-                    case "0":
-                        break;
-                    case "1":
-                        break;
-                    case "2":
-                        break;
-                    case "3":
-                        break;
-                    case "4":
-                        break;
-                    case "5":
-                        break;
-                    case "6":
-                        break;
-                    case "7":
-                        break;
-                    case "8":
-                        break;
-                    case "9":
-                        break;
-                    default:
-                        valid = true;
-                        break;
-                }
-            }
-
-
-
-
-            return valid;
-
-        }
-        
     }
 }

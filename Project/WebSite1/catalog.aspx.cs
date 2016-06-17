@@ -8,42 +8,36 @@ using System.Web.UI.WebControls;
 
 public partial class WebSite1_catalog : System.Web.UI.Page
 {
-    int cartCounter;
-    List<int> cartItems = new List<int>();
-    clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
+   clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         if (!IsPostBack)
         {
-            cartCounter = 0;
         }
     }
 
    public void btnProduct_click(object sender, EventArgs e)
     {
-       /*Button clickedButton = (((Button)sender).Attributes).Keys.OfType<"value">.ToString();
 
-        if (clickedButton == null)
-            return;
-
-        string btnNum = clickedButton.Attributes.Keys.ToString();
-        switch (Convert.ToInt32(btnNum.Substring((btnNum.Length-1), btnNum.Length)))
+        if(Session["userid"]!=null)
         {
-            case 1:
-                cartCounter++;
-                cartItems.Add(1);
-                break;
+            Button btnName = (Button)sender;
+            int cntPrd = 0;
 
-            case 2:
-                cartCounter++;
-                cartItems.Add(2);
-                break;
+            string btnNameID = btnName.ID;
+            int btnID = Convert.ToInt32(btnNameID.Substring((btnNameID.Length - 1), 1));
+            int prdID = Convert.ToInt32(btnNameID.Substring((btnNameID.Length - 3), 1));
+
+            cntPrd = myBusinessLayer.AddOrder(Convert.ToInt32(Session["userid"].ToString()), prdID);
+
+            this.lblCartCount.Text = cntPrd.ToString();
+
+        }
+        else
+        {
+            this.lblCartCount.Text = "Please Login! To Order your Products.";
         }
 
-        this.lblCartCount.Text = cartCounter.ToString();*/
     }
-
-
 }
