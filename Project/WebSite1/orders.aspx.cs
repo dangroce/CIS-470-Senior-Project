@@ -15,5 +15,8 @@ public partial class WebSite1_orders : System.Web.UI.Page
         DataTable dtOrders = new DataTable();
 
         dtOrders = myBusiness.GetOrders(Session["userid"].ToString());
+
+        gvOrders.DataSource = dtOrders;
+        gvOrders.DataBind();
     }
 }

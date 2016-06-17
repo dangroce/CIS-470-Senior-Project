@@ -44,13 +44,32 @@ public class clsBusinessLayer
     }
 
 
+    public DataTable CatagoryList()
+    {
+        DataTable myCatagory = new DataTable();
+
+        try
+        {
+            string sqlStmt = "select * from `wsc`.`catalog` " +
+                "as c left join `wsc`.`product` as p on c.`productid` = p.`productid`;";
+
+            myCatagory = myDataLayer.mySelect(sqlStmt);
+        }
+        catch (Exception error)
+        {
+            string msg = error.ToString();
+        }
+
+        return myCatagory;
+    }
+
     public DataTable ProductList()
     {
         DataTable myProducts = new DataTable();
 
         try
         {
-            string sqlStmt = "select * from `wsc`.`product`;";
+            string sqlStmt = "select * from `wsc`.`product` where ;";
 
             myProducts = myDataLayer.mySelect(sqlStmt);
         }
@@ -68,7 +87,7 @@ public class clsBusinessLayer
 
         try
         {
-            string sqlStmt = "select * from `wsc`.`orders`;";
+            string sqlStmt = "select * from `wsc`.`orders` where `userid` = @parm1;";
 
             dtGetOrders = myDataLayer.mySelect(sqlStmt, userid);
         }

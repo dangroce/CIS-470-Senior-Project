@@ -5,6 +5,13 @@
         <h3>Complete Your Order</h3>
     </div>
     <div class="content center">
-        <asp:GridView ID="gvOrders" runat="server"></asp:GridView>
+        <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField AccessibleHeaderText="Item Count" DataField="itemcount" HeaderText="Item Count" />
+                <asp:BoundField AccessibleHeaderText="Description" DataField="Description" HeaderText="Description" />
+                <asp:BoundField AccessibleHeaderText="Order Date" DataField="orderdate" HeaderText="Order Date" />
+                <asp:BoundField AccessibleHeaderText="Amount" DataField="amount" HeaderText="Amount" />
+            </Columns>
+        </asp:GridView>
     </div>
 </asp:Content>

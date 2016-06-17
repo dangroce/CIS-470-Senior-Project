@@ -130,9 +130,6 @@ public class clsDatalayer
     {
         DataTable dsMySelect = new DataTable();
 
-        //string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`" +
-        //                " where `userlogin` = @parm1 and `passwrd` = @parm2;";
-
         //Open connection
         if (this.OpenConnection() == true)
         {
