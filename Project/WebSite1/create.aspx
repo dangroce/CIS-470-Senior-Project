@@ -21,6 +21,7 @@
             <input id="txtCreateCity" placeholder="Enter City" type="text" />
             <asp:Label ID="lblCreateState" runat="server" Text="Label">State</asp:Label>
             <select id="slctState">
+                <option value="#"  selected disabled>Select a State</option>
                 <option value="AL">Alabama</option>
 	            <option value="AK">Alaska</option>
 	            <option value="AZ">Arizona</option>

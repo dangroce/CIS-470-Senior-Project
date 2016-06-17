@@ -8,11 +8,11 @@
             <p>Enter your username and password below.</p>
             <div class="form_row">
                  <asp:Label ID="lblUserName" runat="server" Text="Label">User Name</asp:Label>
-                 <asp:TextBox ID="txtUserName" runat="server" Text="Enter UserName"></asp:TextBox>
+                 <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter UserName"></asp:TextBox>
             </div>
             <div class="form_row">
                 <asp:Label ID="Label1" runat="server" Text="Label">Password</asp:Label>
-                <asp:Textbox ID="txtPassword" runat="server" Text="Enter Password" type="password" />
+                <asp:Textbox ID="txtPassword" runat="server" placeholder="Enter Password" type="password" />
             </div>
             <div class="form_row">
                 <asp:Button ID="sbmtLogIn" runat="server" CssClass="btn" Text="Log In"  onclick="btnLogin_Click" />

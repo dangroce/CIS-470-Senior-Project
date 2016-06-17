@@ -390,6 +390,15 @@ header div.nav ul li a.btn {
   margin-bottom: 20px;
 }
 
+.form_content.full {
+  padding: 50px 0 0 21.42857%;
+  height: 800px;
+}
+
+.form_content.full .btn {
+  text-align: center;
+}
+
 .form_content.create {
   height: 1100px;
 }
@@ -522,4 +531,10 @@ footer div.nav ul li a {
 footer div.nav ul li a.btn {
   min-width: 140px;
   color: white;
+}
+
+@media (max-width: 700px) {
+  .form_content .left, .form_content .right {
+    width: 100%;
+  }
 }

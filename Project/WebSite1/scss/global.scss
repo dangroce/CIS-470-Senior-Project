@@ -98,8 +98,16 @@ header{
     }
 
 }
+.form_content.full{
+    padding: 50px 0 0 percentage(300/1400);
+    height: 800px;
+    .btn{
+        text-align: center;
+    }
+}
 .form_content.create{
     height: 1100px;
+
 }
 .form_content{
     background-color: $tan;
@@ -210,6 +218,13 @@ footer{
                     }
                 }
             }
+        }
+    }
+}
+@media (max-width:700px) {
+    .form_content{
+        .left,.right{
+            width: 100%;
         }
     }
 }
