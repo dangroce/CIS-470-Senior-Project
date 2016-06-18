@@ -14,15 +14,25 @@
     <header>
         
         <div class="nav">
-            <img src="../images/logo.png" alt="Alternate Text" />
+            <div class="mobile_nav">
+                <ul>
+                    <li><a href="catalog.aspx">Catalog</a></li>
+                    <li><a href="orders.aspx">Orders</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="login.aspx">Log In</a></li>
+                </ul>
+            </div>
+            <a href="home.aspx"><img src="../images/logo.png" alt="Alternate Text" /></a>
             <ul>
-                <li><a href="home.aspx">Home</a></li>
                 <li><a href="catalog.aspx">Catalog</a></li>
                 <li><a href="orders.aspx">Orders</a></li>
                 <li><a href="#">Account</a></li>
                 <li><a href="login.aspx" class="btn">Log In</a></li>
             </ul>
         </div>
+        
+            
+       
     </header>
     <form id="form1" runat="server">
     <div>
@@ -35,7 +45,6 @@
        <div class="nav">
             <img src="../images/footer-logo.png" alt="Alternate Text" />
             <ul>
-                <li><a href="home.aspx">Home</a></li>
                 <li><a href="catalog.aspx">Catalog</a></li>
                 <li><a href="orders.aspx">Orders</a></li>
                 <li><a href="#">Account</a></li>

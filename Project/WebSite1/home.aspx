@@ -45,7 +45,7 @@
                   <a href="#" class="btn inverse">Purchase</a>
               </div>
           </div>
-           <a href="#" class="btn">view all</a>
+           <a href="#" class="btn clr">view all</a>
        </div>
         <div class="cta clr">
             <h3>need a custom order?</h3>

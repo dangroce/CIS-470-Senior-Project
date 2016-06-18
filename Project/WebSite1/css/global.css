@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /** * html5doctor.com Reset Stylesheet v1.6.1 (http://html5doctor.com/html-5-reset-stylesheet/) * Richard Clark (http://richclarkdesign.com) * http://cssreset.com */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
   margin: 0;
@@ -232,6 +232,10 @@ p {
   color: #F05A28;
 }
 
+header {
+  z-index: 100;
+}
+
 header div.nav {
   width: 100%;
   margin: 2.5%;
@@ -240,6 +244,23 @@ header div.nav {
 
 header div.nav img {
   padding-left: 2.5%;
+}
+
+header div.nav div.mobile_nav {
+  display: none;
+  position: absolute;
+  left: 90%;
+  background-image: url(../images/menu-icon.png);
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  float: right;
+  z-index: 100;
+}
+
+header div.nav div.mobile_nav ul {
+  position: relative;
+  top: 32px;
 }
 
 header div.nav ul {
@@ -274,7 +295,6 @@ header div.nav ul li a.btn {
   background-image: url("../images/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 700px;
 }
 
 .home_hero .content {
@@ -303,6 +323,10 @@ header div.nav ul li a.btn {
 .products_holder {
   text-align: center;
   margin: 0 7.14286%;
+}
+
+.products_holder div.view_all {
+  width: 100%;
 }
 
 .products_holder p {
@@ -400,7 +424,7 @@ header div.nav ul li a.btn {
 }
 
 .form_content.create {
-  height: 1100px;
+  height: 1300px;
 }
 
 .form_content {
@@ -533,8 +557,115 @@ footer div.nav ul li a.btn {
   color: white;
 }
 
+@media (max-width: 1050px) {
+  header div.nav ul {
+    display: none;
+  }
+  header div.nav div.mobile_nav {
+    z-index: 100;
+    display: block;
+  }
+  header div.nav div.mobile_nav ul {
+    display: none;
+  }
+  header div.nav div.mobile_nav:hover ul {
+    display: block;
+    width: 300px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    background-color: white;
+    text-align: center;
+    border-right: solid 2px #F05A28;
+    border-left: solid 2px #F05A28;
+  }
+  header div.nav div.mobile_nav:hover ul li {
+    display: block;
+    min-width: 300px;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: solid 2px #F05A28;
+    box-sizing: border-box;
+  }
+  header div.nav div.mobile_nav:hover ul li:hover {
+    background-color: #F05A28;
+  }
+  header div.nav div.mobile_nav:hover ul li:hover a {
+    color: white;
+  }
+  .home_hero {
+    text-align: center;
+  }
+  .home_hero .image_holder {
+    background-image: none;
+    background-color: #FFDEB2;
+  }
+  .home_hero .image_holder .content {
+    padding: 21.42857%;
+    z-index: -1;
+  }
+  .home_hero .image_holder .content h2 {
+    z-index: -1;
+  }
+  .home_hero .image_holder .content .btn {
+    min-width: 200px;
+  }
+  .home_hero .image_holder .content a.inverse {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  footer {
+    text-align: center;
+  }
+  footer div.nav ul {
+    display: none;
+  }
+}
+
 @media (max-width: 700px) {
+  .form_content.full {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 50px;
+  }
+  .form_content.create {
+    height: 1100px;
+  }
+  .form_content {
+    height: 500px;
+    text-align: center;
+  }
+  .form_content p {
+    width: 100%;
+  }
+  .form_content .left {
+    border-right: none;
+  }
   .form_content .left, .form_content .right {
     width: 100%;
+  }
+  .form_content input[type="text"], .form_content select, .form_content input[type="password"] {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    min-width: 0;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 500px) {
+  .cta h3 {
+    font-size: 1em;
+  }
+  .cta a.btn.inverse {
+    margin-left: 0;
   }
 }
