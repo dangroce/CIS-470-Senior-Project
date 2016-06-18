@@ -8,6 +8,37 @@
         <asp:Label ID="lblCartCount" CssClass="lblCart" runat="server" ></asp:Label>
     </div>
     <div class="products_holder">
+        <asp:DataList ID="dlCatalogs" runat="server" CssClass="product_row" RepeatDirection="Horizontal" RepeatColumns="5" Width="1000px" HorizontalAlign="Center">
+            <EditItemStyle BorderStyle="Solid" />
+            <ItemStyle BorderStyle="Solid" />
+            <ItemTemplate >
+                <div class="prod" style="width:300px;">
+                    <asp:Image ID="imgCatalog" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="trophy" />
+
+                    <asp:Label ID="imgTitle" CssClass="imgTitle" Text='<%# Eval("productdescription") %>' runat="server"></asp:Label>
+                    <asp:Label ID="imgDescript" CssClass="imgDescript" Text='<% # Eval("productdescription")%>' runat="server"></asp:Label>
+                    <asp:Label ID="imgDem" CssClass="imgTitle" Text='<% # Eval("productid")%>' runat="server"></asp:Label>
+                    <asp:Label ID="imgType" CssClass="imgDescript" Text='<% # Eval("producttype")%>' runat="server"></asp:Label>
+                    <asp:Label ID="hdnID" Visible="false" Text='<%# Eval("itemid") %>' runat="server" />
+                    <asp:LinkButton ID="btnProduct1_1"  class="btn inverse" runat="server" Text="Purchase" CommandArgument="dlCatalogs_SelectedIndexChanged" CommandName="Selected" />
+
+                </div>
+            </ItemTemplate>
+            <SelectedItemStyle BorderStyle="Solid" BorderWidth="2px" />
+            <SelectedItemTemplate>
+                <div class="prod" style="width:300px;">
+                    <asp:Image ID="imgCatalog" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="trophy" />
+
+                    <asp:Label ID="imgTitle" CssClass="imgTitle" Text='<%# Eval("productdescription") %>' runat="server"></asp:Label>
+                    <asp:Label ID="imgDescript" CssClass="imgDescript" Text='<% # Eval("productdescription")%>' runat="server"></asp:Label>
+                    <asp:Label ID="imgDem" CssClass="imgTitle" Text='<% # Eval("productid")%>' runat="server"></asp:Label>
+                    <asp:Label ID="imgType" CssClass="imgDescript" Text='<% # Eval("producttype")%>' runat="server"></asp:Label>
+                    <asp:Label ID="hdnID" Visible="false" Text='<%# Eval("itemid") %>' runat="server" />
+                    <asp:LinkButton ID="btnProduct1_1"  class="btn inverse" runat="server" Text="Purchase" CommandArgument="dlCatalogs_SelectedIndexChanged" CommandName="Selected" />
+
+                </div>
+            </SelectedItemTemplate>
+        </asp:DataList>
         <div class="product_row">
             <!-- use a loop to for each div.prod -->
             <div class="prod">
@@ -16,7 +47,6 @@
                   <p>May the Force be with you.</p>
                   <h5>Dimensions:</h5>
                   <p>Clothes</p>
-                <asp:Button ID="btnProduct1_1" value="1" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
@@ -24,7 +54,6 @@
                   <p>Look like you fell from the Stars.</p>
                   <h5>Dimensions:</h5>
                   <p>Clothes</p>
-                <asp:Button ID="btnProduct2_2" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
@@ -32,7 +61,6 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>Trophy</p>
-                <asp:Button ID="btnProduct3_3" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
             <div class="prod">
                   <img src="../images/prod1.png" alt="Alternate Text" />
@@ -40,7 +68,6 @@
                   <p>Only Winners Here.</p>
                   <h5>Dimensions:</h5>
                   <p>Trophy</p>
-                <asp:Button ID="btnProduct4_4" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod2.png" alt="Alternate Text" />
@@ -48,7 +75,6 @@
                   <p>For Winners Only. No exceptions.</p>
                   <h5>Dimensions:</h5>
                   <p>Plaques</p>
-                <asp:Button ID="btnProduct5_5" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
                <div class="prod">
                   <img src="../images/prod3.png" alt="Alternate Text" />
@@ -56,9 +82,8 @@
                   <p>MVP.</p>
                   <h5>Dimensions:</h5>
                   <p>Trophy</p>
-                <asp:Button ID="btnProduct6_6" class="btn inverse" runat="server" Text="Purchase" OnClick="btnProduct_click" />
               </div>
-        </div>
+            se</div>
         <div class="pagination">
             <a href="#" class="txt prev"><< Previous</a>
             <a href="#"class="txt current">1</a>

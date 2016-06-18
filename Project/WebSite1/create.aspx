@@ -21,6 +21,7 @@
             <asp:TextBox ID="txtCity" runat="server" type="text" />
             <asp:Label ID="lblCreateState" runat="server" Text="Label">State</asp:Label>
             <select id="slctState">
+                <option value="#"  selected disabled>Select a State</option>
                 <option value="AL">Alabama</option>
 	            <option value="AK">Alaska</option>
 	            <option value="AZ">Arizona</option>
@@ -75,7 +76,7 @@
             </select>
             <asp:Label ID="lblZip" runat="server" Text="Zip">City</asp:Label>
             <asp:TextBox ID="txtZip" runat="server" type="text" />
-            <asp:Button ID="sbmtCreat" class="btn" runat="server" value="Create Account" OnClick="btnSubmit_Click"/>
+            <asp:Button ID="sbmtCreat" class="btn" runat="server" value="Create Account" Text="Create Account" OnClick="btnSubmit_Click"/>
         </div>
         <div class="right">
             <h3>Have an Account?</h3>

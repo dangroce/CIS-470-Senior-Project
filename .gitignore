@@ -49,3 +49,4 @@ Temporary Items
 #custom files
 prepos.config
 web.config
+*.aspx

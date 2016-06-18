@@ -1,0 +1,23 @@
+
+//This goes in the clsBusinessLayer.cs
+
+public DataTable emailVerify(string email)
+    {
+        // 
+        // Datatable for users
+        DataTable userEmail = new DataTable();
+
+        // try to get the users information
+        try
+        {
+            string sqlStmt = "select * from `wsc`.`users` where `email` = @parm1;";
+
+            userEmail = myDataLayer.cntSelect(sqlStmt, email);
+        }
+        catch(Exception error)
+        {
+            string theerror = error.ToString();
+        }
+
+        return userEmail;
+    }
