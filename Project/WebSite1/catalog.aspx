@@ -8,92 +8,18 @@
         <asp:Label ID="lblCartCount" CssClass="lblCart" runat="server" ></asp:Label>
     </div>
     <div class="products_holder">
-        <asp:DataList ID="dlCatalogs" runat="server" CssClass="product_row" RepeatDirection="Horizontal" RepeatColumns="5" Width="1000px" HorizontalAlign="Center">
-            <EditItemStyle BorderStyle="Solid" />
-            <ItemStyle BorderStyle="Solid" />
-            <ItemTemplate >
-                <div class="prod" style="width:300px;">
-                    <asp:Image ID="imgCatalog" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="trophy" />
-
-                    <asp:Label ID="imgTitle" CssClass="imgTitle" Text='<%# Eval("productdescription") %>' runat="server"></asp:Label>
-                    <asp:Label ID="imgDescript" CssClass="imgDescript" Text='<% # Eval("productdescription")%>' runat="server"></asp:Label>
-                    <asp:Label ID="imgDem" CssClass="imgTitle" Text='<% # Eval("productid")%>' runat="server"></asp:Label>
-                    <asp:Label ID="imgType" CssClass="imgDescript" Text='<% # Eval("producttype")%>' runat="server"></asp:Label>
-                    <asp:Label ID="hdnID" Visible="false" Text='<%# Eval("itemid") %>' runat="server" />
-                    <asp:LinkButton ID="btnProduct1_1"  class="btn inverse" runat="server" Text="Purchase" CommandArgument="dlCatalogs_SelectedIndexChanged" CommandName="Selected" />
-
+        <asp:Repeater ID="dlCatalogs" runat="server">
+            <ItemTemplate>
+                <div class="prod">
+                    <img src="../images/prod1.png" alt="Alternate Text" />
+                    <h5> <%# Eval("productdescription") %></h5>
+                    <p>May the Force be with you.</p>
+                    <h5>$<%# Eval("retailcost")%></h5>
+                    <p>Type: <%# Eval("producttype")%></p>
+                    <asp:Button ID="btnProduct1_1" class="btn inverse" runat="server" Text="Purchase" />
                 </div>
             </ItemTemplate>
-            <SelectedItemStyle BorderStyle="Solid" BorderWidth="2px" />
-            <SelectedItemTemplate>
-                <div class="prod" style="width:300px;">
-                    <asp:Image ID="imgCatalog" ImageUrl='<%# Eval("ImageUrl") %>' runat="server" AlternateText="trophy" />
-
-                    <asp:Label ID="imgTitle" CssClass="imgTitle" Text='<%# Eval("productdescription") %>' runat="server"></asp:Label>
-                    <asp:Label ID="imgDescript" CssClass="imgDescript" Text='<% # Eval("productdescription")%>' runat="server"></asp:Label>
-                    <asp:Label ID="imgDem" CssClass="imgTitle" Text='<% # Eval("productid")%>' runat="server"></asp:Label>
-                    <asp:Label ID="imgType" CssClass="imgDescript" Text='<% # Eval("producttype")%>' runat="server"></asp:Label>
-                    <asp:Label ID="hdnID" Visible="false" Text='<%# Eval("itemid") %>' runat="server" />
-                    <asp:LinkButton ID="btnProduct1_1"  class="btn inverse" runat="server" Text="Purchase" CommandArgument="dlCatalogs_SelectedIndexChanged" CommandName="Selected" />
-
-                </div>
-            </SelectedItemTemplate>
-        </asp:DataList>
-        <div class="product_row">
-            <!-- use a loop to for each div.prod -->
-            <div class="prod">
-                  <img src="../images/prod1.png" alt="Alternate Text" />
-                  <h5>StarWars Tee-Shirt</h5>
-                  <p>May the Force be with you.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Clothes</p>
-              </div>
-               <div class="prod">
-                  <img src="../images/prod2.png" alt="Alternate Text" />
-                  <h5>Star Jeans</h5>
-                  <p>Look like you fell from the Stars.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Clothes</p>
-              </div>
-               <div class="prod">
-                  <img src="../images/prod3.png" alt="Alternate Text" />
-                  <h5>Bowling Trophy Woman</h5>
-                  <p>For Winners Only. No exceptions.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Trophy</p>
-              </div>
-            <div class="prod">
-                  <img src="../images/prod1.png" alt="Alternate Text" />
-                  <h5>Bowling Trophy Man</h5>
-                  <p>Only Winners Here.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Trophy</p>
-              </div>
-               <div class="prod">
-                  <img src="../images/prod2.png" alt="Alternate Text" />
-                  <h5>Baseball Plaques</h5>
-                  <p>For Winners Only. No exceptions.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Plaques</p>
-              </div>
-               <div class="prod">
-                  <img src="../images/prod3.png" alt="Alternate Text" />
-                  <h5>Team Trophy 3 People Top</h5>
-                  <p>MVP.</p>
-                  <h5>Dimensions:</h5>
-                  <p>Trophy</p>
-              </div>
-            se</div>
-        <div class="pagination">
-            <a href="#" class="txt prev"><< Previous</a>
-            <a href="#"class="txt current">1</a>
-            <a href="#"class="txt">2</a>
-            <a href="#"class="txt">3</a>
-            <a href="#"class="txt">4</a>
-            <a href="#"class="txt">5</a>
-            <a href="#"class="txt">6</a>
-            <a href="#" class="txt next">Next >></a>
-        </div>
+        </asp:Repeater>
         
     </div>
     <div class="cta">
