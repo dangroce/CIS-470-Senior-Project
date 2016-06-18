@@ -556,28 +556,6 @@ footer div.nav ul li a.btn {
   min-width: 140px;
   color: white;
 }
-<<<<<<< HEAD
-.prod{
-    width:300px;
-    height:600px;
-    border:solid 1px black;
-    border-radius:15%;
-    padding-right:10px;
-}
-.imgTitle{
-    display:block;
-    font-size:1.5em;
-    font-weight:800;
-    margin-bottom:1.2em;
-}
-
-.imgDescript{
-    display:block;
-    font-size:1.2em;
-    font-weight:400;
-    margin-bottom:1.2em;
-}
-=======
 
 @media (max-width: 1050px) {
   header div.nav ul {
@@ -691,4 +669,3 @@ footer div.nav ul li a.btn {
     margin-left: 0;
   }
 }
->>>>>>> 91beab9e810aaa9d62528c40c674defe5b9b2014

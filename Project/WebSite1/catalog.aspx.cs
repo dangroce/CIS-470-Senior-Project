@@ -46,9 +46,9 @@ public partial class WebSite1_catalog : System.Web.UI.Page
     {
         if (e.CommandName == "Selected")
         {
-         //   String dlSelectedCat = dlCatalogs.DataKeys[dlCatalogs.SelectedIndex].ToString();
-           // DataListItem dliSelectedCat = dlCatalogs.SelectedItem;
-            //string itemid = ((Label)dliSelectedCat.FindControl("hdnID")).Text;
+            // String dlSelectedCat = dlCatalogs.DataKeys[dlCatalogs.SelectedIndex].ToString();
+            // DataListItem dliSelectedCat = dlCatalogs.SelectedItem;
+            // string itemid = ((Label)dliSelectedCat.FindControl("hdnID")).Text;
         }
 
     }

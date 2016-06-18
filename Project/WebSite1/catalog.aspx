@@ -16,7 +16,7 @@
                     <p>May the Force be with you.</p>
                     <h5>$<%# Eval("retailcost")%></h5>
                     <p>Type: <%# Eval("producttype")%></p>
-                    <asp:Button ID="btnProduct1_1" class="btn inverse" runat="server" Text="Purchase" />
+                    <asp:Button ID="btnProduct1_1" class="btn inverse" OnClick="btnProduct" runat="server" Text="Purchase" />
                 </div>
             </ItemTemplate>
         </asp:Repeater>
