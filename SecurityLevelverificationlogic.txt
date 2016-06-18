@@ -1,0 +1,75 @@
+//this all goes under different pages what is missing is a line of code that calls for security level in the database logic game
+//and then a assignment of that level of security clearence under the log in code that I pointed out.
+//As far as I can tell all other pages can be viewed with out security level.
+//The only other logic is if you are not signed in and hit purchas and a person should be directed to the login page here is a quick 
+//mock up of what that would look like
+
+purchase button
+
+if(session["securityLevel"] != "customer" || session["securityLevel"] != "employee" || session["securityLevel"] != "manager")
+{
+Response.Redirect("login.Aspx");
+}
+
+
+login.aspx.cs
+
+//include under btnLogin_Click
+
+string securityLevel;
+
+//need a call to pull security level
+
+	switch(securityLevel)
+		{
+		case "customer":
+			session["securityLevel"] = "customer";
+			break;
+		case "employee":
+			session["securityLevel"] = "employee";
+			break;
+		case "manager:
+			session["securityLevel"] = "manager";
+			break;
+		default:
+			break;
+		{
+
+orders.aspx.cs
+
+//goes under page_load
+
+if(session["securityLevel"] != "customer" || session["securityLevel"] != "employee" || session["securityLevel"] != "manager")
+{
+Response.Redirect("login.Aspx");
+}
+else if( session["securityLevel"] =="customer")
+{
+txtOrderSearch.visible = false;
+btnOrderSearch.visible = false;
+}
+else if(session["securityLevel"] == "employee" || session["securityLevel"] == "manager")
+{
+txtOrderSearch.visible = true;
+btnOrderSearch.visible = true;
+}
+
+Account.aspx.cs
+
+//goes under page_load
+
+if(session["securityLevel"] != "customer" || session["securityLevel"] != "employee" || session["securityLevel"] != "manager")
+{
+Response.Redirect("login.Aspx");
+}
+else if( session["securityLevel"] =="customer")
+{
+txtAccountSearch.visible = false;
+btnAccountSearch.visible = false;
+}
+else if(session["securityLevel"] == "employee" || session["securityLevel"] == "manager")
+{
+txtAccountSearch.visible = true;
+btnAccountSearch.visible = true;
+}
+
