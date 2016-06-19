@@ -63,15 +63,30 @@ public class clsBusinessLayer
         return myCatagory;
     }
 
-    public DataTable ProductList()
+    public DataTable OrdersList(int listType)
     {
         DataTable myProducts = new DataTable();
-
+        string sqlStmt = "";
         try
         {
-            string sqlStmt = "select * from `wsc`.`product` where ;";
+            switch (listType)
+            {
+                case 1:
+                    sqlStmt = "select * from `wsc`.`product` where `validation` = 0 ;";
 
-            myProducts = myDataLayer.mySelect(sqlStmt);
+                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    break;
+                case 2:
+                    sqlStmt = "select * from `wsc`.`product` where `validation` > 0 ;";
+
+                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    break;
+                case 3:
+                    sqlStmt = "select * from `wsc`.`product` where `validation` > 0 and char_length(fullfilled) > 0;";
+
+                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    break;
+            }
         }
         catch(Exception error)
         {
@@ -80,6 +95,7 @@ public class clsBusinessLayer
 
         return myProducts;
     }
+
     
     public DataTable GetOrders(string userid)
     {
