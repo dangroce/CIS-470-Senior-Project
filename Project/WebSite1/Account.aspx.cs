@@ -11,6 +11,13 @@ public partial class _Default : System.Web.UI.Page
     clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["userid"] == null)
+        {
+            Response.Redirect("~/login.aspx");
+        }
+        //If statement for visibility on Access Level
+        lblSearchE.Visible = false;
+        txtSearchE.Visible = false;
         //button visible
         btnSaveA.Visible = false;
         btnCancelA.Visible = false;
@@ -46,6 +53,12 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnEditA_Click(object sender, EventArgs e)
     {
+        txtUserNameA.Text = Convert.ToString(Session["userlogin"]);
+        txtFirstNameA.Text = Convert.ToString(Session["firstname"]);
+        txtLastNameA.Text = Convert.ToString(Session["lastname"]);
+        txtCityA.Text = Convert.ToString(Session["city"]);
+        txtStateA.Text = Convert.ToString(Session["state"]);
+        txtPhoneNumberA.Text = Convert.ToString(Session["phone"]);
         //button visible
         btnSaveA.Visible = true;
         btnCancelA.Visible = true;
@@ -57,6 +70,7 @@ public partial class _Default : System.Web.UI.Page
         txtStateA.ReadOnly = false;
         txtZipA.ReadOnly = false;
         txtEmailA.ReadOnly = false;
+        txtPhoneNumberA.ReadOnly = false;
         txtPasswordA.ReadOnly = false;
 
         //these will only be visible in edit mode to change password

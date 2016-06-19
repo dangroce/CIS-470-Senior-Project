@@ -113,6 +113,23 @@ public class clsBusinessLayer
 
         return dtGetOrders;
     }
+    public DataTable GetPurchases(string userid)
+    {
+        DataTable dtGetPurchases = new DataTable();
+
+        try
+        {
+            string sqlStmt = "select * from `wsc`.`purchase` where `userid` = @parm1;";
+
+            dtGetPurchases = myDataLayer.mySelect(sqlStmt, userid);
+        }
+        catch (Exception error)
+        {
+            string msg = error.ToString();
+        }
+
+        return dtGetPurchases;
+    }
 
     public int AddOrder(int userid, int item)
     {
@@ -176,7 +193,7 @@ public class clsBusinessLayer
 
         dtCnt = myDataLayer.cntSelect(sqlStmtCnt, userid);
 
-        itemCnt = dtCnt.Rows[0].Field<int>(0);
+        itemCnt = 1;
 
         return itemCnt;
     }

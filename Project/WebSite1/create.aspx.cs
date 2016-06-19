@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Windows.Forms;
+//using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
 
-namespace WebSite1_create
-{
-    public partial class create : System.Web.UI.Page
+public partial class create : System.Web.UI.Page
     {
-        /* this section is to connect to the business layer so I can do email verification
-        // Connection to the BusinessLayer
-        clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
-        */
-        protected void Page_Load(object sender, EventArgs e)
+    /* this section is to connect to the business layer so I can do email verification
+    // Connection to the BusinessLayer
+    clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
+    */
+    clsBusinessLayer myBusinessLayer = new clsBusinessLayer();
+    protected void Page_Load(object sender, EventArgs e)
         {
             txtZip.MaxLength = 5;
             txtPhoneNumber.MaxLength = 13;
@@ -186,21 +186,21 @@ namespace WebSite1_create
 
 
 
-                /*DataTable dtEmailVer = new DataTable();
+                DataTable dtEmailVer = new DataTable();
 
 
                 try
                 {
-                    dtEmailVer = myBusinessLayer.loginUser(txtEmail.Text.toString());
+                    dtEmailVer = myBusinessLayer.loginUser(txtEmail.Text.ToString(), txtPassword.Text.ToString());
                     Session["userid"] = dtEmailVer.Rows[0].Field<int>("userid").ToString();
 
                     {
                         if (dtEmailVer.Rows.Count > 0)
-                 * {
-                 * txtEmail.BackColor = System.Drawing.Color.Yellow;
+                  {
+                  txtEmail.BackColor = System.Drawing.Color.Yellow;
                     lblError.Text += "email is already registered! <br />";
                     isValid = false;
-                 * }
+                 }
                             
 
                     }
@@ -209,7 +209,7 @@ namespace WebSite1_create
                 {
                     string msg = error.ToString();
                 }
-                */
+                
 
 
                 if (isValid)
@@ -257,4 +257,3 @@ namespace WebSite1_create
         }
        
     }
-}
