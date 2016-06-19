@@ -30,6 +30,7 @@ CREATE TABLE `product` (
   `retailcost` float(6,2) NOT NULL,
   `currentstock` int(11) NOT NULL,
   `ImageUrl` varchar(100) CHARACTER SET big5 DEFAULT NULL,
+  `productadvertising` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`productid`),
   UNIQUE KEY `productid_UNIQUE` (`productid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -41,7 +42,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'StarWars Tee-Shirt','Clothes',6.95,21.25,248,'../images/prod1.png'),(2,'Star Jeans','Clothes',16.95,45.95,148,'../images/prod2.png'),(3,'Bowling Trophy Woman','Trophy',6.95,21.25,68,'../images/prod1.png'),(4,'Bowling Trophy Man','Trophy',6.95,21.25,72,'../images/prod2.png'),(5,'baseball plaques','Plaques',16.95,46.75,48,'../images/prod2.png'),(6,'Team Trophy 3 People Top','Trophy',76.95,221.25,8,NULL);
+INSERT INTO `product` VALUES (1,'StarWars Tee-Shirt','Clothes',6.95,21.25,248,NULL,'May the Force be with you'),(2,'Star Jeans','Clothes',16.95,45.95,148,NULL,'Look like you fell from the Stars.'),(3,'Bowling Trophy Woman','Trophy',6.95,21.25,68,NULL,'For Winners Only. No exceptions.'),(4,'Bowling Trophy Man','Trophy',6.95,21.25,72,NULL,'Only Winners Here.'),(5,'baseball plaques','Plaques',16.95,46.75,48,NULL,'For Winners Only. No exceptions.'),(6,'Team Trophy 3 People Top','Trophy',76.95,221.25,8,NULL,'Flies to the Winners Circle.');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-17 18:39:05
+-- Dump completed on 2016-06-18 20:48:05
