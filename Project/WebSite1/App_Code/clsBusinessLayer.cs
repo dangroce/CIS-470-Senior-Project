@@ -43,7 +43,6 @@ public class clsBusinessLayer
         return dsLogin;
     }
 
-
     public DataTable CatagoryList()
     {
         DataTable myCatagory = new DataTable();
