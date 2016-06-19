@@ -46,13 +46,20 @@ public partial class WebSite1_catalog : System.Web.UI.Page
     {
         if (e.CommandName == "Selected")
         {
-            // String dlSelectedCat = dlCatalogs.DataKeys[dlCatalogs.SelectedIndex].ToString();
-            // DataListItem dliSelectedCat = dlCatalogs.SelectedItem;
-            // string itemid = ((Label)dliSelectedCat.FindControl("hdnID")).Text;
+         //   String dlSelectedCat = dlCatalogs.DataKeys[dlCatalogs.SelectedIndex].ToString();
+           // DataListItem dliSelectedCat = dlCatalogs.SelectedItem;
+            //string itemid = ((Label)dliSelectedCat.FindControl("hdnID")).Text;
         }
 
     }
+    protected void dlCatalogs_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "addtocart")
+        {
+            myBusinessLayer.AddOrder(Convert.ToInt32(Session["userid"]), Convert.ToInt32(e.CommandArgument));
 
+        }
+    }
     protected void dlCatalogs_SelectedIndexChanged(object sender, DataListCommandEventArgs e)
     {
         if (e.CommandName == "Selected")
