@@ -159,9 +159,9 @@ public class clsBusinessLayer
             dtAOrder = myDataLayer.AddOrder(sqlStmt, item, userid,
                        itemCnt, prdamt, prdDesc, 0, dtTime, 0, 0);
 
-        //dtCnt = myDataLayer.cntSelect(sqlStmtCnt, userid);
+        dtCnt = myDataLayer.cntSelect(sqlStmtCnt, userid);
 
-        //itemCnt = dtCnt.Rows[0].Field<int>(0);
+        itemCnt = dtCnt.Rows[0].Field<int>(0);
 
         return itemCnt;
     }
