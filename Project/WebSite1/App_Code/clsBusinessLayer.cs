@@ -43,6 +43,73 @@ public class clsBusinessLayer
         return dsLogin;
     }
 
+    public DataTable GetUser(string email = "@parm1", string fname = "@parm2", string lname = "@parm3")
+    {
+        DataTable guser = new DataTable();
+
+        try
+        {
+            if(email != "@parm1" && fname != "@parm2" && lname != "@parm3")
+            {
+                string sqlStmt = "select * from wsc.users where email = @parm1 and firstname = @parm2 and lastname = @parm3;";
+                guser = myDataLayer.mySelect(sqlStmt, email, fname, lname);
+
+            }
+            else if (email != "@parm1" && fname != "@parm2" && lname == "@parm3")
+            {
+                string sqlStmt = "select * from wsc.users where email = @parm1 and firstname = @parm2;";
+                guser = myDataLayer.mySelect(sqlStmt, email, fname, lname);
+
+            }
+            else if (email != "@parm1" && fname == "@parm2" && lname == "@parm3")
+            {
+                string sqlStmt = "select * from wsc.users where email = @parm1;";
+                guser = myDataLayer.mySelect(sqlStmt, email, fname, lname);
+
+            }
+            else if (email == "@parm1" && fname == "@parm2" && lname == "@parm3")
+            {
+                string sqlStmt = "select * from wsc.users;";
+                guser = myDataLayer.mySelect(sqlStmt, email, fname, lname);
+
+            }
+
+        }
+        catch(Exception e)
+        {
+            string msg = e.ToString();
+        }
+
+        return guser;
+    }
+
+    public bool updtUser(int typeid, string userlogin, string passwrd, string fname, string lname, 
+        string City, string ustate, string phonenumber, string startdate, int  status = 0, 
+        string middlename = "", string email = "", string enddate = "")
+    {
+        DataTable uuser = new DataTable();
+        bool udtUser;
+
+        try
+        {
+
+            string sqlStmt = "update wsc.users set typeid = @parm1, userlogin = @parm2, passwrd = @parm3, " +
+                    "firstname = @parm4, lastname = @parm5, middlename = @parm6, email = @parm7, " +
+                    "city = @parm8, ustate = @parm9, phonenumber = @parm10, startdate = @parm11, " +
+                    "enddate = @parm12, status = @parm13;";
+
+            udtUser = myDataLayer.AddUser(sqlStmt, typeid, userlogin, passwrd, fname, lname, middlename, email, City,
+                ustate, phonenumber, startdate, enddate, status);
+
+        }
+        catch (Exception e)
+        {
+            string msg = e.ToString();
+            udtUser = false;
+        }
+
+        return udtUser;
+    }
 
     public DataTable CatagoryList()
     {
