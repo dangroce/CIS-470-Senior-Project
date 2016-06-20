@@ -47,8 +47,14 @@ public partial class login : System.Web.UI.Page
         {
             dtlogin = myBusinessLayer.loginUser(userName, password);
             Session["userid"] = dtlogin.Rows[0].Field<int>("userid").ToString();
-
-            {
+            Session["userlogin"] = dtlogin.Rows[0].Field<string>("userlogin").ToString();
+            Session["password"] = dtlogin.Rows[0].Field<string>("passwrd").ToString();
+            Session["firstname"] = dtlogin.Rows[0].Field<string>("firstname").ToString();
+            Session["lastname"] = dtlogin.Rows[0].Field<string>("lastname").ToString();
+            Session["city"] = dtlogin.Rows[0].Field<string>("city").ToString();
+            Session["state"] = dtlogin.Rows[0].Field<string>("ustate").ToString();
+            Session["phone"] = dtlogin.Rows[0].Field<string>("phonenumber").ToString();
+                        {
                 if (dtlogin.Rows.Count > 0)
                 Response.Redirect("~/catalog.aspx");
                

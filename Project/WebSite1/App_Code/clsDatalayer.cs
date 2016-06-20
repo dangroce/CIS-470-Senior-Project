@@ -189,6 +189,7 @@ public class clsDatalayer
             return dsMySelect;
         }
     }
+<<<<<<< HEAD
 
     public bool AddUser(string sqlStmt, int typeid, string userlogin, string passwrd, string fname,
             string lname, string middlename, string email, string City, string ustate, string phonenumber,
@@ -233,6 +234,8 @@ public class clsDatalayer
         return GoodAdd;
     }
 
+=======
+>>>>>>> origin/master
     public DataTable AddOrder(string sqlStmt, int prodid = 0, int userid = 0, int itemcnt = 0,
                         float amount = 0, string descript = "", float adj = 0, 
                         string orderdate = "" ,

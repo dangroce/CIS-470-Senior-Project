@@ -13,5 +13,19 @@
                 <asp:BoundField AccessibleHeaderText="Amount" DataField="amount" HeaderText="Amount" />
             </Columns>
         </asp:GridView>
+        <div class="purchase">
+            <asp:Button ID="btnComplete"  OnClick="btnComplete_Click" runat="server" Text="Complete Order" CssClass="btn"/>
+        </div>
+
+        <div class="previous_orders">
+            <asp:GridView ID="gvPurchases" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField AccessibleHeaderText="Order Number" DataField="orderid" HeaderText="Order Number" />
+                    <asp:BoundField AccessibleHeaderText="Sales Person ID" DataField="salerid" HeaderText="Sales Person ID" />
+                    <asp:BoundField AccessibleHeaderText="Order Amount" DataField="orderamount" HeaderText="Order Amount" />
+                </Columns>
+            </asp:GridView>
+        </div>
     </div>
+
 </asp:Content>

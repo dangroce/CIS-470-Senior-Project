@@ -414,17 +414,49 @@ header div.nav ul li a.btn {
   margin-bottom: 20px;
 }
 
+.content.center {
+  width: 71.42857%;
+  padding: 50px 14.28571%;
+  text-align: center;
+}
+
+.content.center table {
+  width: 100%;
+}
+
+.content.center table th {
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 1.125em;
+  line-height: 1.6875em;
+  border-bottom: solid 3px #F05A28;
+}
+
+.content.center table td {
+  font-family: 'Open Sans';
+  font-size: 1em;
+  line-height: 1.6875em;
+  padding: 10px;
+  text-align: left;
+  border: solid 1px #F05A28;
+}
+
+.content.center .purchase {
+  margin-top: 50px;
+}
+
 .form_content.full {
   padding: 50px 0 0 21.42857%;
-  height: 800px;
+  height: 100%;
 }
 
 .form_content.full .btn {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .form_content.create {
-  height: 1300px;
+  height: 1400px;
 }
 
 .form_content {

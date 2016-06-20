@@ -57,6 +57,8 @@ public partial class WebSite1_catalog : System.Web.UI.Page
         if (e.CommandName == "addtocart")
         {
             myBusinessLayer.AddOrder(Convert.ToInt32(Session["userid"]), Convert.ToInt32(e.CommandArgument));
+            Button lblProductAdded = (Button)e.Item.FindControl("btnPurchase");
+            lblProductAdded.Text = "Added to Order";
 
         }
     }

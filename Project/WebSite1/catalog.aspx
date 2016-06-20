@@ -15,8 +15,10 @@
                     <h5> <%# Eval("productdescription") %></h5>
                     <p>May the Force be with you.</p>
                     <h5>$<%# Eval("retailcost")%></h5>
-                    <p>Type: <%# Eval("producttype")%></p>
+                    <p>Type: <%# Eval("producttype")%></p>                    
                     <asp:Button ID="btnPurchase" CommandName="addtocart" CommandArgument='<%# Eval("itemid") %>' UseSubmitBehavior="false" class="btn inverse" runat="server" Text="Purchase" />
+                    <asp:Label ID="lblProductAdded" runat="server" Text=""></asp:Label>
+                    
                 </div>
             </ItemTemplate>
         </asp:Repeater>

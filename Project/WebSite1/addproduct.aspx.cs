@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,6 +18,10 @@ public partial class addproduct : System.Web.UI.Page
     protected void btnProductAdd_Click(object sender, EventArgs e)
     {
       
+    }
+    protected void btnProductEdit_Click(object sender, EventArgs e)
+    {
+
     }
 
     protected void UploadButton_Click(object sender, EventArgs e)
