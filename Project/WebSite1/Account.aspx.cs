@@ -40,12 +40,24 @@ public partial class _Default : System.Web.UI.Page
         lblNewPassword.Visible = false;
         txtNewPasswordA.Visible = false;
         // prepopulate data from session
-        txtUserNameA.Text = Convert.ToString(Session["userlogin"]);
-        txtFirstNameA.Text = Convert.ToString(Session["firstname"]);
-        txtLastNameA.Text = Convert.ToString(Session["lastname"]);
-        txtCityA.Text = Convert.ToString(Session["city"]);
-        txtStateA.Text = Convert.ToString(Session["state"]);
-        txtPhoneNumberA.Text = Convert.ToString(Session["phone"]);
+        if(btnSaveA.Visible != true)
+        {
+            txtUserNameA.Text = Convert.ToString(Session["userlogin"]);
+            txtFirstNameA.Text = Convert.ToString(Session["firstname"]);
+            txtLastNameA.Text = Convert.ToString(Session["lastname"]);
+            txtMiddleNameA.Text = Session["middlename"].ToString();
+            txtEmailA.Text = Session["email"].ToString();
+            txtAddressA.Text = Session["address1"].ToString();
+            txtAddress2A.Text = Session["address2"].ToString();
+            txtCityA.Text = Convert.ToString(Session["city"]);
+            txtStateA.Text = Convert.ToString(Session["state"]);
+            txtZipA.Text = Session["zipcode"].ToString();
+            txtPhoneNumberA.Text = Convert.ToString(Session["phone"]);
+            txtStartDate.Text = Session["startdate"].ToString();
+            txtEndDate.Text = Session["enddate"].ToString();
+            txtStatus.Text = Session["status"].ToString();
+
+        }
 
 
         //myBusinessLayer.getUserInfo(Convert.ToString(Session["userid"])));
@@ -162,7 +174,7 @@ public partial class _Default : System.Web.UI.Page
                 lblError.Text += "Please enter City! <br />";
                 isValid = false;
             }
-            else if (!Regex.IsMatch(txtCityA.Text, @"^[^0-9\#\$\@\+\*]*$"))
+            else if (!Regex.IsMatch(txtCityA.Text, @"^[^0-9\-\#\$\@\+\*]*$"))
             {
                 txtCityA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter City! <br />";
@@ -215,8 +227,13 @@ public partial class _Default : System.Web.UI.Page
             if (isValid)
             {
                 //update information in the database
+                bool updated;
 
                 //this will include address, address2, city,state, zip, email, and password
+               updated =  myBusinessLayer.updtUser(Convert.ToInt32(Session["UserID"]), txtUserNameA.Text, txtPasswordA.Text, txtFirstNameA.Text, txtLastNameA.Text, txtCityA.Text, txtStateA.Text, txtPhoneNumberA.Text,
+                                                "", 0, "", txtEmailA.Text, "");
+
+
             }
             else
             {

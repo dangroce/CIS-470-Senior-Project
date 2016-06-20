@@ -51,14 +51,49 @@ public partial class login : System.Web.UI.Page
             Session["password"] = dtlogin.Rows[0].Field<string>("passwrd").ToString();
             Session["firstname"] = dtlogin.Rows[0].Field<string>("firstname").ToString();
             Session["lastname"] = dtlogin.Rows[0].Field<string>("lastname").ToString();
-            Session["city"] = dtlogin.Rows[0].Field<string>("city").ToString();
+            if(dtlogin.Rows[0].Field<string>("middlename") != null)
+            {
+                Session["middlename"] = dtlogin.Rows[0].Field<string>("middlename").ToString();
+            }
+            else
+            {
+                Session["middlename"] = "";
+            }
+            if(dtlogin.Rows[0].Field<string>("email") != null)
+            {
+                Session["email"] = dtlogin.Rows[0].Field<string>("email").ToString();
+            }
+            else
+            {
+                Session["email"] = "";
+            }
+            Session["address1"] = dtlogin.Rows[0].Field<string>("Address1").ToString();
+            if(dtlogin.Rows[0].Field<string>("Address2") != null)
+            {
+                 Session["address2"] = dtlogin.Rows[0].Field<string>("Address2").ToString();
+            }
+            else
+            {
+                Session["address2"] = "";
+            }
+            Session["city"] = dtlogin.Rows[0].Field<string>("City").ToString();
             Session["state"] = dtlogin.Rows[0].Field<string>("ustate").ToString();
+            Session["zipcode"] = dtlogin.Rows[0].Field<string>("zipcode").ToString();
             Session["phone"] = dtlogin.Rows[0].Field<string>("phonenumber").ToString();
-                        {
-                if (dtlogin.Rows.Count > 0)
+            Session["startdate"] = dtlogin.Rows[0].Field<DateTime>("startdate").ToString();
+            if (dtlogin.Rows[0].Field<string>("enddate") != null)
+            {
+            Session["enddate"] = dtlogin.Rows[0].Field<DateTime>("enddate").ToString();
+            }
+            else
+            {
+                Session["enddate"] = "";
+            }
+            Session["status"] = dtlogin.Rows[0].Field<int>("status").ToString();
+
+                if (dtlogin.Rows[0] != null && dtlogin.Rows.Count > 0)
                 Response.Redirect("~/catalog.aspx");
                
-            }
         }
         catch(Exception error)
         {
