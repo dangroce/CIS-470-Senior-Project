@@ -43,7 +43,7 @@ public class clsBusinessLayer
         return dsLogin;
     }
 
-<<<<<<< HEAD
+
     public DataTable GetUser(string email = "@parm1", string fname = "@parm2", string lname = "@parm3")
     {
         DataTable guser = new DataTable();
@@ -112,8 +112,7 @@ public class clsBusinessLayer
         return udtUser;
     }
 
-=======
->>>>>>> origin/master
+
     public DataTable CatagoryList()
     {
         DataTable myCatagory = new DataTable();
