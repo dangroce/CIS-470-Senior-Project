@@ -18,13 +18,13 @@ public partial class WebSite1_orders : System.Web.UI.Page
         }
         DataTable dtOrders = new DataTable();
 
-        dtOrders = myBusiness.GetOrders(Session["userid"].ToString());
+        dtOrders = myBusiness.OrdersList(Session["userid"].ToString(), 1);
 
         gvOrders.DataSource = dtOrders;
         gvOrders.DataBind();
 
         DataTable dtPurchases = new DataTable();
-        dtPurchases = myBusiness.GetPurchases(Session["userid"].ToString());
+        dtPurchases = myBusiness.OrdersList(Session["userid"].ToString(), 2);
         gvPurchases.DataSource = dtPurchases;
         gvPurchases.DataBind();
     }

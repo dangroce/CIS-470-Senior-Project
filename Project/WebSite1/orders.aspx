@@ -11,6 +11,7 @@
                 <asp:BoundField AccessibleHeaderText="Description" DataField="Description" HeaderText="Description" />
                 <asp:BoundField AccessibleHeaderText="Order Date" DataField="orderdate" HeaderText="Order Date" />
                 <asp:BoundField AccessibleHeaderText="Amount" DataField="amount" HeaderText="Amount" />
+                <asp:BoundField AccessibleHeaderText="Total" DataField="Total" HeaderText="Total" />
             </Columns>
         </asp:GridView>
         <div class="purchase">

@@ -19,6 +19,7 @@ public partial class WebSite1_catalog : System.Web.UI.Page
         if (Session["CatalogCart"] == null)
         {
             CataCart = new DataTable("CataCart");
+            CataCart.Columns.Add(new DataColumn("ImageUrl", typeof(string)));
             CataCart.Columns.Add(new DataColumn("itemid", typeof(string)));
             CataCart.Columns.Add(new DataColumn("productid", typeof(string)));
             CataCart.Columns.Add(new DataColumn("userid", typeof(string)));
@@ -31,16 +32,23 @@ public partial class WebSite1_catalog : System.Web.UI.Page
                 cc[0] = 1;
                 cc[1] = 1;
                 cc[2] = 1;
+                cc[3] = 1;
                 CataCart.Rows.Add(cc);
             }
         }
         else
             CataCart = (DataTable)Session["CatalogCart"];
 
+        if(Session["userid"]!= null)
+        {
+            this.lblCartCount.Text = myBusinessLayer.CntOrders(Session["userid"].ToString()).ToString();
+        }
+
         if (!IsPostBack)
         {
         }
     }
+
 
     public void btnProduct_click(object sender, DataListCommandEventArgs e)
     {
@@ -54,12 +62,25 @@ public partial class WebSite1_catalog : System.Web.UI.Page
     }
     protected void dlCatalogs_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
+        Label ProdAdd = (Label)e.Item.FindControl("lblProductAdded");
+        int cartint = 0;
+
         if (e.CommandName == "addtocart")
         {
-            myBusinessLayer.AddOrder(Convert.ToInt32(Session["userid"]), Convert.ToInt32(e.CommandArgument));
-            Button lblProductAdded = (Button)e.Item.FindControl("btnPurchase");
-            lblProductAdded.Text = "Added to Order";
+            if(Session["userid"]!= null)
+            {
+                cartint = myBusinessLayer.AddOrder(Convert.ToInt32(Session["userid"]), Convert.ToInt32(e.CommandArgument));
+                Button lblProductAdded = (Button)e.Item.FindControl("btnPurchase");
+                ProdAdd.Text = "Added to Order";
+                this.lblCartCount.Text = cartint.ToString();
+             }
+            else
+            {
+                ProdAdd.Text = "Please login to purchase items.";
+                //this.lblProductAdded.Text = "Please login to purchase items.";
+            }
 
+            this.lblCartCount.Text = myBusinessLayer.CntOrders(Session["userid"].ToString()).ToString();
         }
     }
     protected void dlCatalogs_SelectedIndexChanged(object sender, DataListCommandEventArgs e)

@@ -132,28 +132,31 @@ public class clsBusinessLayer
         return myCatagory;
     }
 
-    public DataTable OrdersList(int listType)
+    public DataTable OrdersList(string userid, int listType)
     {
-        DataTable myProducts = new DataTable();
+        DataTable myOrders = new DataTable();
+
         string sqlStmt = "";
         try
         {
             switch (listType)
             {
-                case 1:
-                    sqlStmt = "select * from `wsc`.`product` where `validation` = 0 ;";
+                case 1: //Current orders
+                    sqlStmt = "select *, sum(`amount`) as Total from `wsc`.`orders` where `userid` = @parm1 and `validation` = 0 ;";
 
-                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    myOrders = myDataLayer.mySelect(sqlStmt, userid);
                     break;
-                case 2:
-                    sqlStmt = "select * from `wsc`.`product` where `validation` > 0 ;";
+                case 2: // Past orders but sales is still pending issue
+                    sqlStmt = "select * from `wsc`.`orders` where `userid` = @parm1 and `validation` > 0 ;";
 
-                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    myOrders = myDataLayer.mySelect(sqlStmt, userid);
+                    
+                    
                     break;
-                case 3:
-                    sqlStmt = "select * from `wsc`.`product` where `validation` > 0 and char_length(fullfilled) > 0;";
+                case 3:// Completed orders with all delivery and funds exchanged.
+                    sqlStmt = "select * from `wsc`.`orders` where `userid` = @parm1 and `validation` > 0 and char_length(fullfilled) > 0;";
 
-                    myProducts = myDataLayer.mySelect(sqlStmt);
+                    myOrders = myDataLayer.mySelect(sqlStmt, userid);
                     break;
             }
         }
@@ -172,7 +175,7 @@ public class clsBusinessLayer
 
         try
         {
-            string sqlStmt = "select * from `wsc`.`orders` where `userid` = @parm1;";
+            string sqlStmt = "select * from `wsc`.`orders` where `userid` = @parm1 and `validation` = 0;";
 
             dtGetOrders = myDataLayer.mySelect(sqlStmt, userid);
         }
@@ -183,15 +186,29 @@ public class clsBusinessLayer
 
         return dtGetOrders;
     }
-    public DataTable GetPurchases(string userid)
+
+    public DataTable GetPurchases(DataTable dtOrders, string userid)
     {
         DataTable dtGetPurchases = new DataTable();
+        DataTable dtPurchaseTest = new DataTable();
 
         try
         {
-            string sqlStmt = "select * from `wsc`.`purchase` where `userid` = @parm1;";
+            foreach (DataTable item in dtOrders.Rows)
+            {
+                string sqlStmtAllPurchases = "select * from `wsc`.`purchase` where `userid`=@parm1"+
+                                        " and `orderid` = @parm2;";
+                dtPurchaseTest = myDataLayer.mySelect(sqlStmtAllPurchases, userid, item.Rows[0][0].ToString());
+                if(dtPurchaseTest.Rows != null && item.Rows[0][0] == dtPurchaseTest.Rows[0][1])
+                {
+                    string sqlStmt = "Update `wsc`.`purchase` set `currentorderamount` = @parm1," +
+                                " `orderamount` = @parm2;";
 
-            dtGetPurchases = myDataLayer.mySelect(sqlStmt, userid);
+                    //dtGetPurchases = myDataLayer.mySelect(sqlStmt, item.Rows[0][4].ToString(), item.Comput("Sum(amount)"));
+
+                }
+
+            }
         }
         catch (Exception error)
         {
@@ -212,6 +229,7 @@ public class clsBusinessLayer
         string prdDesc = "";
         int itemCnt = 1;
         string dtTime = "";
+        int cntItem = 0;
 
 
         string sqlStmtProd = "select * from `wsc`.`product` where `productid` = @parm1;";
@@ -261,11 +279,21 @@ public class clsBusinessLayer
             dtAOrder = myDataLayer.AddOrder(sqlStmt, item, userid,
                        itemCnt, prdamt, prdDesc, 0, dtTime, 0, 0);
 
-        dtCnt = myDataLayer.cntSelect(sqlStmtCnt, userid);
+        cntItem = myDataLayer.cntSelect(sqlStmtCnt, userid);
 
         itemCnt = 1;
 
         return itemCnt;
+    }
+
+    public int CntOrders(string userid)
+    {
+        int cntOrder;
+        string sqlStmtCnt = "select sum(itemcount) as itemcount from `wsc`.`orders` where  `userid` = @parm1 and `validation` = 0;";
+
+        cntOrder = myDataLayer.cntSelect(sqlStmtCnt, Convert.ToInt32(userid));
+
+        return cntOrder;
     }
 
 }

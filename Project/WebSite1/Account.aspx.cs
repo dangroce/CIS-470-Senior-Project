@@ -107,16 +107,22 @@ public partial class _Default : System.Web.UI.Page
                 txtPasswordA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter password! <br />";
                 isValid = false;
+
+                txtPasswordA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtPasswordA.Text, @"^[0-9a-zA-Z\?\!\@]+$"))
             {
                 txtPasswordA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter password! <br />";
                 isValid = false;
+
+                txtPasswordA.ReadOnly = false;
             }
             else
             {
                 txtPasswordA.BackColor = System.Drawing.Color.White;
+
+                txtPasswordA.ReadOnly = true;
             }
             //Password
             if (string.IsNullOrEmpty((txtNewPasswordA.Text ?? string.Empty).Trim()))
@@ -124,16 +130,21 @@ public partial class _Default : System.Web.UI.Page
                 txtNewPasswordA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter password! <br />";
                 isValid = false;
+
+                txtNewPasswordA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtNewPasswordA.Text, @"^[0-9a-zA-Z\?\!\@]+$"))
             {
                 txtNewPasswordA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter password! <br />";
                 isValid = false;
+
+                txtNewPasswordA.ReadOnly = false;
             }
             else
             {
                 txtNewPasswordA.BackColor = System.Drawing.Color.White;
+                txtNewPasswordA.ReadOnly = true;
             }
             //Email
             if (string.IsNullOrEmpty((txtEmailA.Text ?? string.Empty).Trim()))
@@ -141,16 +152,21 @@ public partial class _Default : System.Web.UI.Page
                 txtEmailA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter email! <br />";
                 isValid = false;
+
+                txtEmailA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtEmailA.Text, "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$"))
             {
                 txtEmailA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter email valid email! <br />";
                 isValid = false;
+
+                txtEmailA.ReadOnly = false;
             }
             else
             {
                 txtEmailA.BackColor = System.Drawing.Color.White;
+                txtEmailA.ReadOnly = true;
             }
 
             //Address
@@ -159,13 +175,32 @@ public partial class _Default : System.Web.UI.Page
                 txtAddressA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter Address! <br />";
                 isValid = false;
+
+                txtAddressA.ReadOnly = false;
             }
 
             else
             {
                 txtAddressA.BackColor = System.Drawing.Color.White;
+
+                txtAddressA.ReadOnly = true;
             }
             //Address2
+            if (string.IsNullOrEmpty((txtAddressA.Text ?? string.Empty).Trim()))
+            {
+                txtAddress2A.BackColor = System.Drawing.Color.Yellow;
+                lblError.Text += "Please enter Address! <br />";
+                isValid = false;
+
+                txtAddress2A.ReadOnly = false;
+            }
+
+            else
+            {
+                txtAddress2A.BackColor = System.Drawing.Color.White;
+
+                txtAddress2A.ReadOnly = true;
+            }
 
             //City
             if (string.IsNullOrEmpty((txtCityA.Text ?? string.Empty).Trim()))
@@ -173,16 +208,21 @@ public partial class _Default : System.Web.UI.Page
                 txtCityA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter City! <br />";
                 isValid = false;
+
+                txtCityA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtCityA.Text, @"^[^0-9\-\#\$\@\+\*]*$"))
             {
                 txtCityA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter City! <br />";
                 isValid = false;
+
+                txtCityA.ReadOnly = false;
             }
             else
             {
                 txtCityA.BackColor = System.Drawing.Color.White;
+                txtCityA.ReadOnly = true;
             }
 
             //zip code
@@ -192,32 +232,38 @@ public partial class _Default : System.Web.UI.Page
                 txtZipA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter Zip code! <br />";
                 isValid = false;
+                txtZipA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtZipA.Text, "^[0-9]+$"))
             {
                 txtZipA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please Enter only numbers into the zip code! <br />";
                 isValid = false;
+                txtZipA.ReadOnly = false;
             }
             else
             {
                 txtZipA.BackColor = System.Drawing.Color.White;
+                txtZipA.ReadOnly = true;
             }
             if (string.IsNullOrEmpty((txtPhoneNumberA.Text ?? string.Empty).Trim()))
             {
                 txtPhoneNumberA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please enter Zip code! <br />";
                 isValid = false;
+                txtPhoneNumberA.ReadOnly = false;
             }
             else if (!Regex.IsMatch(txtPhoneNumberA.Text, @"^\(\d{3}\) ?\d{3}( |-)?\d{4}|^\d{3}( |-)?\d{3}( |-)?\d{4}"))
             {
                 txtPhoneNumberA.BackColor = System.Drawing.Color.Yellow;
                 lblError.Text += "Please Enter only numbers into the zip code! <br />";
                 isValid = false;
+                txtPhoneNumberA.ReadOnly = false;
             }
             else
             {
                 txtPhoneNumberA.BackColor = System.Drawing.Color.White;
+                txtPhoneNumberA.ReadOnly = true;
             }
 
 

@@ -159,9 +159,10 @@ public class clsDatalayer
         }
     }
 
-    public DataTable cntSelect(string sqlStmt, int parm1)
+    public int cntSelect(string sqlStmt, int parm1)
     {
         DataTable dsMySelect = new DataTable();
+        int cntItem = 0;
 
         //Open connection
         if (this.OpenConnection() == true)
@@ -181,12 +182,17 @@ public class clsDatalayer
             //close Connection
             this.CloseConnection();
 
+            if(dsMySelect.Rows != null)
+            {
+                cntItem = Convert.ToInt32(dsMySelect.Rows[0][0].ToString());
+            }
+
             //return list to be displayed
-            return dsMySelect;
+            return cntItem;
         }
         else
         {
-            return dsMySelect;
+            return 0;
         }
     }
 
@@ -284,53 +290,6 @@ public class clsDatalayer
         }
     }
 
-    /*public bool createEditSingle(string sqlStmt, string param1, string param2 = "param2", 
-                                    string param3 = "param3", string param4 = "param4"
-                                , string param5 = "param5", string param6 = "param6", 
-                                    string param7 = "param7", string param8 = "param8")
-    {
-        // To send back boolean value is set to false incase the IF false
-        bool isValid = false;
-        DataTable dtUser = new DataTable();
-        DataTable dtCrtEdtSing = new DataTable();
-
-        //Open connection
-        if (this.OpenConnection()==true)
-        {
-            
-            string query = "SELECT `userlogin`, `firstname`, `lastname` FROM `wsc`.`users`" +
-                       " where `userlogin` = @parm1 and `passwrd` = @parm2;";
-
-            //Create Command
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-
-            cmd.Parameters.AddWithValue("@parm1", param1);
-            cmd.Parameters.AddWithValue("@parm2", param2);
-            cmd.Parameters.AddWithValue("@parm3", param3);
-            cmd.Parameters.AddWithValue("@parm4", param4);
-            cmd.Parameters.AddWithValue("@parm5", param5);
-            cmd.Parameters.AddWithValue("@parm6", param6);
-            cmd.Parameters.AddWithValue("@parm7", param7);
-            cmd.Parameters.AddWithValue("@parm8", param8);
-
-            using (MySqlDataAdapter daUsers = new MySqlDataAdapter(cmd))
-            {
-                daUsers.Fill(dtCrtEdtSing);
-            }
-
-
-
-            //close Connection
-            this.CloseConnection();
-
-            //return list to be displayed
-            return dtUser;
-        }
-        else
-        {
-            return dtUser;
-        }
-    }*/
 
 }
 
